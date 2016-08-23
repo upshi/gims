@@ -1,0 +1,30 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="gims-web:war exploded">
+    <output-path>$PROJECT_DIR$/gims-web/target/gims-web</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="gims-web" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="archive" name="gims-service-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="gims-service" />
+          </element>
+          <element id="archive" name="gims-dao-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="gims-dao" />
+          </element>
+          <element id="archive" name="gims-common-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="gims-common" />
+          </element>
+          <element id="archive" name="gims-model-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="gims-model" />
+          </element>
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/gims-web/target/gims-web/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="gims-web/web/Web" />
+    </root>
+  </artifact>
+</component>

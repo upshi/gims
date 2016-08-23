@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="gims-web:war">
+    <output-path>$PROJECT_DIR$/gims-web/target</output-path>
+    <root id="archive" name="gims-web.war">
+      <element id="artifact" artifact-name="gims-web:war exploded" />
+    </root>
+  </artifact>
+</component>

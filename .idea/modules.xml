@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/gims.iml" filepath="$PROJECT_DIR$/gims.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gims-common/gims-common.iml" filepath="$PROJECT_DIR$/gims-common/gims-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gims-dao/gims-dao.iml" filepath="$PROJECT_DIR$/gims-dao/gims-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gims-model/gims-model.iml" filepath="$PROJECT_DIR$/gims-model/gims-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gims-service/gims-service.iml" filepath="$PROJECT_DIR$/gims-service/gims-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gims-web/gims-web.iml" filepath="$PROJECT_DIR$/gims-web/gims-web.iml" />
+    </modules>
+  </component>
+</project>
