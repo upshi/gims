@@ -1,4 +1,4 @@
-package com.yiheidaodi;
+package com.yiheidaodi.gims.service;
 
 /**
  * Hello world!

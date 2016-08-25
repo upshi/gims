@@ -1,4 +1,4 @@
-package com.yiheidaodi;
+package com.yiheidaodi.gims.common;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
