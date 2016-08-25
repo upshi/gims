@@ -1,4 +1,4 @@
-package com.yiheidaodi.model;
+package com.yiheidaodi.gims.model;
 
 /**
  * gims com.yiheidaodi.model
