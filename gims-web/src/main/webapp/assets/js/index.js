@@ -1,6 +1,8 @@
 var myApp = angular.module('myApp', []);
 myApp.controller('appController', function($scope){
     $scope.sheet = {
-        sheetName: '表单名称'
+        sheetName: '表单名称',
+        widthFull: true,
+        widthHalf: true
     };
 });

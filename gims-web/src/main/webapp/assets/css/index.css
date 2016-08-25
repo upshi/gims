@@ -4,7 +4,7 @@
 }
 
 body {
-    font-family:'微软雅黑', 'Times New Roman', Times, serif;
+    font-family: '微软雅黑', 'Times New Roman', Times, serif;
     background: url("../images/bg.png") repeat;
 }
 
@@ -62,9 +62,10 @@ body {
 .glyphicon {
     font-size: 90%;
     margin-right: 10px;
+    margin-top: 8px;
 }
 
-.section_left_header,.section_right_header{
+.section_left_header, .section_right_header {
     background-color: rgb(241, 241, 241);
     height: 40px;
     line-height: 40px;
@@ -94,14 +95,14 @@ body {
     font-weight: bolder;
     border: 1px dashed #c0c0c0;
     background-color: rgb(255, 251, 239);
-    padding-left:10px;
+    padding-left: 10px;
 }
 
 .section_middle_content {
     min-height: 400px;
     background-color: #fff;
     border: 1px solid rgb(221, 221, 221);
-    padding-top:10px;
+    padding-top: 10px;
     font-size: 14px;
 }
 
@@ -116,14 +117,15 @@ body {
     text-align: center;
     display: none;
 }
+
 .section_middle_footer .btn {
-    width:100px;
+    width: 100px;
 }
 
 .section_right_content {
     min-height: 400px;
     background-color: #fff;
-    padding-top:10px;
+    padding-top: 10px;
     border: 1px solid #ccc;
     border-top: none;
 }
