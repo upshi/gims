@@ -1,5 +1,6 @@
 package com.yiheidaodi.gims.controller;
 
+import com.yiheidaodi.gims.model.Sheet;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -14,6 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class AppController {
 
-
+    @RequestMapping("/aa")
+    public String index() {
+        Sheet sheet = new Sheet();
+        return "redirect:/index.jsp";
+    }
 
 }
