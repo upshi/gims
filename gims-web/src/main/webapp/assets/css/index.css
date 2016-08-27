@@ -8,16 +8,24 @@ body {
     background: url("../images/bg.png") repeat;
 }
 
+/*页面头部*/
 #page_header {
     background-color: rgb(68, 68, 68);
     width: 100%;
     height: 50px;
     line-height: 50px;
     vertical-align: middle;
+    position: fixed;
+    z-index: 1000;
 }
 
-.navbar ul {
+/*去除所有的ul自带样式*/
+ul {
     list-style: none;
+}
+
+/*导航栏部分开始*/
+.navbar ul {
     margin-left: 30%;
 }
 
@@ -53,18 +61,32 @@ body {
     background-color: rgb(68, 68, 68);
 }
 
+/*主体内容区，固定宽度1246px，居中*/
+.content {
+    width: 1246px;
+    position: relative;
+    top:95px;
+    left:50%;
+    margin-left:-623px;
+}
+
+/*页面主体区域头部，用来展示表单名称*/
 .sheetName {
     font-size: 18px;
     font-weight: bolder;
     margin: -10px 0 5px 0;
+    position: fixed;
+    top: 65px;
 }
 
+/*修改默认的字体文件的大小*/
 .glyphicon {
     font-size: 90%;
     margin-right: 10px;
     margin-top: 8px;
 }
 
+/*主体部分左边、右边的头部样式*/
 .section_left_header, .section_right_header {
     background-color: rgb(241, 241, 241);
     height: 40px;
@@ -75,6 +97,7 @@ body {
     border-bottom: none;
 }
 
+/*主体部分左边内容区*/
 .section_left_content {
     min-height: 400px;
     background-color: #fff;
@@ -82,12 +105,14 @@ body {
     list-style: none;
 }
 
+/*主体部分左边内容区的li标签样式*/
 .section_left_content li {
     height: 30px;
     line-height: 30px;
     border-bottom: 1px solid #ccc;
 }
 
+/*主体部分中间的头部样式*/
 .section_middle_header {
     height: 60px;
     line-height: 60px;
@@ -98,6 +123,7 @@ body {
     padding-left: 10px;
 }
 
+/*主体部分中间的内容区样式*/
 .section_middle_content {
     min-height: 400px;
     background-color: #fff;
@@ -106,6 +132,7 @@ body {
     font-size: 14px;
 }
 
+/*主体部分中间区的底部样式，中间内容区为空时隐藏*/
 .section_middle_footer {
     height: 60px;
     line-height: 60px;
@@ -118,14 +145,102 @@ body {
     display: none;
 }
 
+/*设置中间区底部按钮的样式*/
 .section_middle_footer .btn {
     width: 100px;
 }
 
+/*主体部分中间内容区li标签的样式*/
+#drop li {
+    width: 650px;
+    cursor: move;
+    margin: 5px auto;
+    padding: 10px;
+    clear: both;
+    /*background-color:#FFF8EF;*/
+}
+
+/*默认中间内容区li标签下的input标签样式*/
+#drop li input {
+    width: 550px;
+    height: 30px;
+}
+
+/*默认中间区li标签下的所有input元素和textarea元素的鼠标样式*/
+#drop li input:hover, textarea:hover {
+    cursor: text;
+}
+
+/*多行文本所占的li标签的高度*/
+.multiText {
+    height: 120px;
+}
+
+/*设置多行文本的默认样式*/
+#drop li textarea {
+    width: 550px;
+    height: 65px;
+    background-color: #fff;
+}
+
+/*标签描述的样式*/
+.labelDis {
+    font-size: 13px;
+}
+
+/*input元素日期的样式,注意样式的特指度*/
+#drop .special span input {
+    width: 60px;
+    text-align: center;
+}
+
+/*input元素年龄下拉框的样式*/
+.age {
+    width: 60px;
+    height: 30px;
+}
+
+/*特殊的li标签：用于显示单选和多选框*/
+.choose span {
+    display: block;
+    margin: 10px;
+}
+
+/*input元素单选和多选框的样式*/
+#drop li input[type='radio'], #drop li input[type='checkbox'] {
+    width: 13px;
+    height: 13px;
+    text-align: center;
+    margin-right: 5px;
+}
+
+/*input元素下拉框的样式*/
+.pullDown {
+    width: 270px;
+    height: 30px;
+}
+
+
+/*主体部分右边的内容区样式*/
 .section_right_content {
     min-height: 400px;
     background-color: #fff;
     padding-top: 10px;
     border: 1px solid #ccc;
     border-top: none;
+}
+
+/*排序时，鼠标滑过li标签时的样式*/
+.elementHover {
+    border: 1px dashed #ccc;
+}
+
+/*排序时，鼠标点击li标签时的样式*/
+.elementClick {
+    border: 1px solid #E8DBAD;
+    background-color: #FFF8EF;
+}
+
+.section_right_content textarea {
+    height:74px;
 }
