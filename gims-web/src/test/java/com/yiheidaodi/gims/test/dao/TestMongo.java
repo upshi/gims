@@ -8,7 +8,6 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import com.yiheidaodi.gims.model.Address;
-import com.yiheidaodi.gims.model.Person;
 import org.bson.Document;
 import org.junit.Test;
 import org.junit.runner.RunWith;

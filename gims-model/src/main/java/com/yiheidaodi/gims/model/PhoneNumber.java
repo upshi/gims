@@ -9,8 +9,8 @@ package com.yiheidaodi.gims.model;
 
 public class PhoneNumber {
 
-    private String areaCode;
-    private String tel;
-    private String extensionCode;
+    private String areaCode;       //区号
+    private String tel;            //号码
+    private String extensionCode;  //分机号
 
 }

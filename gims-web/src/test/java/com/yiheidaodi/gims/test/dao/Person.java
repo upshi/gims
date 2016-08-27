@@ -1,4 +1,6 @@
-package com.yiheidaodi.gims.model;
+package com.yiheidaodi.gims.test.dao;
+
+import com.yiheidaodi.gims.model.Address;
 
 /**
  * gims com.yiheidaodi.gims.model
