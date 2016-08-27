@@ -30,7 +30,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="gims" target="1.5" />
+      <module name="gims" target="1.8" />
       <module name="gims-common" target="1.8" />
       <module name="gims-dao" target="1.8" />
       <module name="gims-model" target="1.8" />

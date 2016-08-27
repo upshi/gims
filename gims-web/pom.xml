@@ -32,6 +32,11 @@
             <artifactId>spring-webmvc</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+        </dependency>
+
         <!--  #################################   jackson   ####################################  -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -44,12 +49,6 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-        </dependency>
-
-        <!-- alibaba fastjson -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
         </dependency>
 
         <!-- file upload -->
@@ -68,7 +67,10 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>9.3.11.v20160721</version>
                 <configuration>
-
+                    <scanIntervalSeconds>5</scanIntervalSeconds>
+                    <httpConnector>
+                        <port>9999</port>
+                    </httpConnector>
                 </configuration>
             </plugin>
         </plugins>

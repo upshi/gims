@@ -106,6 +106,12 @@
             <artifactId>slf4j-log4j12</artifactId>
         </dependency>
 
+        <!-- alibaba fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

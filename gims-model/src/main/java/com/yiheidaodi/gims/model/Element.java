@@ -15,8 +15,9 @@ public class Element {
     * /
 
     /* 宽度 */
-    public static final Integer WIDTH_HALF = 0;
-    public static final Integer WIDTH_FULL = 1;
+    public static final Integer WIDTH_SHORT = 0;
+    public static final Integer WIDTH_MIDDLE = 1;
+    public static final Integer WIDTH_LONG = 2;
 
     /* 内宽 */
 
@@ -35,6 +36,10 @@ public class Element {
     public static final Integer LAYOUT_SINGLE = 1;
     public static final Integer LAYOUT_DOUBLE = 2;
     public static final Integer LAYOUT_TRIPLE = 3;
+
+    /* 可见性 */
+    public static final Integer INVISIBLE = 0;
+    public static final Integer VISIBLE = 1;
 
     /* 类型 */
     public static final Integer TYPE_LABEL = 0;
@@ -70,6 +75,7 @@ public class Element {
     private Integer hasCode;    //是否有对应代码
     private Integer hasUploaded;    //是否已上传对应代码
     private String description;  //描述
+    private Integer isVisible;  //学生是否可见
 
 
     private String rows;    //多行文本框的行数

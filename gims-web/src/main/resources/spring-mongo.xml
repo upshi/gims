@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo.xsd">
+
+    <!-- Spring Data MongoDB -->
+    <mongo:mongo-client id="mongoClientFactory" host="192.168.10.3" port="27017">
+        <mongo:client-options write-concern="NORMAL" />
+    </mongo:mongo-client>
+
+    <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg ref="mongoClientFactory"/>
+        <constructor-arg name="databaseName" value="gims"/>
+    </bean>
+
+
+    <!-- MongoDB Java API -->
+    <bean id="mongoClient" class="com.mongodb.MongoClient">
+        <constructor-arg name="host" value="192.168.10.3" />
+        <constructor-arg name="port" value="27017" />
+    </bean>
+
+</beans>
