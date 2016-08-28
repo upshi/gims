@@ -35,22 +35,22 @@
         <section>
             <header class="section_left_header col-sm-12"><p>通用字段</p></header>
             <ul class="section_left_content col-sm-12">
-                <li draggable="true" class="row" tag="0"><spn class="glyphicon glyphicon-tasks col-sm-1"></spn>标签</li>
-                <li draggable="true" class="row" tag="1"><spn class="glyphicon glyphicon-tasks col-sm-1"></spn>单行文本</li>
-                <li draggable="true" class="row" tag="2"><spn class="glyphicon glyphicon-tasks col-sm-1"></spn>多行文本</li>
-                <li draggable="true" class="row" tag="3"><spn class="glyphicon glyphicon-tasks col-sm-1"></spn>电子邮箱</li>
-                <li draggable="true" class="row" tag="4"><spn class="glyphicon glyphicon-tasks col-sm-1"></spn>数字框</li>
-                <li draggable="true" class="row" tag="5"><spn class="glyphicon glyphicon-tasks col-sm-1"></spn>身份证号</li>
-                <li draggable="true" class="row" tag="6"><spn class="glyphicon glyphicon-tasks col-sm-1"></spn>邮政编码</li>
-                <li draggable="true" class="row" tag="7"><spn class="glyphicon glyphicon-tasks col-sm-1"></spn>移动电话</li>
-                <li draggable="true" class="row" tag="8"><spn class="glyphicon glyphicon-tasks col-sm-1"></spn>座机</li>
-                <li draggable="true" class="row" tag="9"><spn class="glyphicon glyphicon-tasks col-sm-1"></spn>地址</li>
-                <li draggable="true" class="row" tag="10"><spn class="glyphicon glyphicon-tasks col-sm-1"></spn>日期</li>
-                <li draggable="true" class="row" tag="11"><spn class="glyphicon glyphicon-tasks col-sm-1"></spn>年龄</li>
-                <li draggable="true" class="row" tag="12"><spn class="glyphicon glyphicon-tasks col-sm-1"></spn>单选框</li>
-                <li draggable="true" class="row" tag="13"><spn class="glyphicon glyphicon-tasks col-sm-1"></spn>多选框</li>
-                <li draggable="true" class="row" tag="14"><spn class="glyphicon glyphicon-tasks col-sm-1"></spn>下拉框</li>
-                <li draggable="true" class="row" tag="15"><spn class="glyphicon glyphicon-tasks col-sm-1"></spn>多级下拉框</li>
+                <li draggable="true" class="row" tag="0"><spn class="glyphicon glyphicon-play-circle col-sm-1"></spn>标签</li>
+                <li draggable="true" class="row" tag="1"><spn class="glyphicon glyphicon-book col-sm-1"></spn>单行文本</li>
+                <li draggable="true" class="row" tag="2"><spn class="glyphicon glyphicon-play-circle col-sm-1"></spn>多行文本</li>
+                <li draggable="true" class="row" tag="3"><spn class="glyphicon glyphicon-book col-sm-1"></spn>电子邮箱</li>
+                <li draggable="true" class="row" tag="4"><spn class="glyphicon glyphicon-play-circle col-sm-1"></spn>数字框</li>
+                <li draggable="true" class="row" tag="5"><spn class="glyphicon glyphicon-book col-sm-1"></spn>身份证号</li>
+                <li draggable="true" class="row" tag="6"><spn class="glyphicon glyphicon-play-circle col-sm-1"></spn>邮政编码</li>
+                <li draggable="true" class="row" tag="7"><spn class="glyphicon glyphicon-book col-sm-1"></spn>移动电话</li>
+                <li draggable="true" class="row" tag="8"><spn class="glyphicon glyphicon-play-circle col-sm-1"></spn>座机</li>
+                <li draggable="true" class="row" tag="9"><spn class="glyphicon glyphicon-book col-sm-1"></spn>地址</li>
+                <li draggable="true" class="row" tag="10"><spn class="glyphicon glyphicon-play-circle col-sm-1"></spn>日期</li>
+                <li draggable="true" class="row" tag="11"><spn class="glyphicon glyphicon-book col-sm-1"></spn>年龄</li>
+                <li draggable="true" class="row" tag="12"><spn class="glyphicon glyphicon-play-circle col-sm-1"></spn>单选框</li>
+                <li draggable="true" class="row" tag="13"><spn class="glyphicon glyphicon-book col-sm-1"></spn>多选框</li>
+                <li draggable="true" class="row" tag="14"><spn class="glyphicon glyphicon-play-circle col-sm-1"></spn>下拉框</li>
+                <li draggable="true" class="row" tag="15"><spn class="glyphicon glyphicon-book col-sm-1"></spn>多级下拉框</li>
             </ul>
         </section>
     </section>
@@ -66,45 +66,43 @@
             <header class="section_right_header col-sm-12"><p>表单属性</p></header>
             <form class="section_right_content col-sm-12">
                 <div class="form-group">
-                    <label class="control-label">表单名称<span>&nbsp;(?)</span></label>
-                    <input class="form-control" type="text" ng-model="sheet.sheetName">
+                    <label class="control-label">元素名称<span>&nbsp;(?)</span></label>
+                    <input class="form-control" type="text">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">列名<span>&nbsp;(?)</span></label>
+                    <input class="form-control" type="text">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">是否必须<span>&nbsp;(?)</span></label><br>
+                    <label class="radio-inline">
+                        <input type="radio" value="" name="0">是
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" value="" name="0">否
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">是否可见<span>&nbsp;(?)</span></label><br>
+                    <label class="radio-inline">
+                        <input type="radio" value="" name="1">是
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" value="" name="1">否
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">是否有对应代码<span>&nbsp;(?)</span></label><br>
+                    <label class="radio-inline">
+                        <input type="radio" value="" name="2">是
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" value="" name="2">否
+                    </label>
                 </div>
                 <div class="form-group">
                     <label class="control-label">描述<span>&nbsp;(?)</span></label>
                     <textarea class="form-control" row="3" placeholder="表单描述"></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">宽度<span>&nbsp;(?)</span></label>
-                    <select class="form-control">
-                        <option value="">充满整行</option>
-                        <option value="">整行的1/2</option>
-                        <option value="">整行的1/3</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">内宽<span>&nbsp;(?)</span></label>
-                    <select class="form-control">
-                        <option value="">短</option>
-                        <option value="">中</option>
-                        <option value="">长</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">分隔符<span>&nbsp;(?)</span></label>
-                    <select class="form-control">
-                        <option value="">无</option>
-                        <option value="">-</option>
-                        <option value="">()</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">分隔符<span>&nbsp;(?)</span></label>
-                    <select class="form-control">
-                        <option value="">无</option>
-                        <option value="">-</option>
-                        <option value="">/</option>
-                        <option value="">()</option>
-                    </select>
                 </div>
             </form>
         </section>
@@ -114,6 +112,8 @@
 <script src="assets/lib/jquery.js"></script>
 <script src="assets/lib/jquery-ui.min.js"></script>
 <script src="assets/lib/angular.js"></script>
+<script src="assets/js/element.js"></script>
+<script src="assets/js/elementUtil.js"></script>
 <script src="assets/js/index.js"></script>
 </body>
 </html>

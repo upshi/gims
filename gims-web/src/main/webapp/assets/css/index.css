@@ -189,7 +189,7 @@ ul {
 }
 
 /*input元素日期的样式,注意样式的特指度*/
-#drop .special span input {
+#drop .special input {
     width: 60px;
     text-align: center;
 }
@@ -218,6 +218,7 @@ ul {
 .pullDown {
     width: 270px;
     height: 30px;
+    margin-right: 5px;
 }
 
 
@@ -240,7 +241,29 @@ ul {
     border: 1px solid #E8DBAD;
     background-color: #FFF8EF;
 }
-
+/*右边选择框的长度*/
 .section_right_content textarea {
-    height:74px;
+    width:250px;
+    height: 74px;
+}
+
+.section_right_content input[type="radio"] {
+    background-color: #1b6d85;
+}
+
+#drop li .shortElement {
+    width:150px;
+}
+#drop li .middleElement {
+    width:300px;
+}
+#drop li .longElement {
+    width:550px;
+}
+
+.address {
+    width: 180px;
+    height: 30px;
+    margin-right: 5px;
+    margin-bottom: 5px;
 }
