@@ -51,7 +51,7 @@ fabric.properties
 ### JetBrains Patch ###
 # Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
 
-# *.iml
+*.iml
 # modules.xml
 # .idea/misc.xml
 # *.ipr
@@ -91,3 +91,15 @@ $RECYCLE.BIN/
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+gims-common/src/test/
+gims-common/target/
+gims-dao/src/test/
+gims-dao/target/
+gims-model/src/test/
+gims-model/target/
+gims-service/src/test/
+gims-service/target/
+gims-web/src/main/webapp/WEB-INF/views/
+gims-web/src/test/java/com/yiheidaodi/gims/test/web/
+gims-web/src/test/resources/
+gims-web/target/
