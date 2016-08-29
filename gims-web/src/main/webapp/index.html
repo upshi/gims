@@ -5,8 +5,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="assets/lib/jquery-ui.min.css">
-    <link rel="stylesheet" href="assets/lib/bootstrap.css">
+    <link rel="stylesheet" href="assets/lib/jquery/jquery-ui.min.css">
+    <link rel="stylesheet" href="assets/lib/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="assets/lib/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/index.css">
     <title>index</title>
@@ -67,51 +67,51 @@
             <form class="section_right_content col-sm-12">
                 <div class="form-group">
                     <label class="control-label">元素名称<span>&nbsp;(?)</span></label>
-                    <input class="form-control" type="text">
+                    <input class="form-control elementText" type="text" name="name">
                 </div>
                 <div class="form-group">
                     <label class="control-label">列名<span>&nbsp;(?)</span></label>
-                    <input class="form-control" type="text">
+                    <input class="form-control elementText" type="text" name="name">
                 </div>
                 <div class="form-group">
                     <label class="control-label">是否必须<span>&nbsp;(?)</span></label><br>
                     <label class="radio-inline">
-                        <input type="radio" value="" name="0">是
+                        <input type="radio" value="1" name="isRequired" class="elementRadio">是
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" value="" name="0">否
+                        <input type="radio" value="0" name="isRequired" class="elementRadio">否
                     </label>
                 </div>
                 <div class="form-group">
                     <label class="control-label">是否可见<span>&nbsp;(?)</span></label><br>
                     <label class="radio-inline">
-                        <input type="radio" value="" name="1">是
+                        <input type="radio" value="1" name="isVisible" class="elementRadio">是
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" value="" name="1">否
+                        <input type="radio" value="0" name="isVisible" class="elementRadio">否
                     </label>
                 </div>
                 <div class="form-group">
                     <label class="control-label">是否有对应代码<span>&nbsp;(?)</span></label><br>
                     <label class="radio-inline">
-                        <input type="radio" value="" name="2">是
+                        <input type="radio" value="1" name="hasCode" class="elementRadio">是
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" value="" name="2">否
+                        <input type="radio" value="0" name="hasCode" class="elementRadio">否
                     </label>
                 </div>
                 <div class="form-group">
                     <label class="control-label">描述<span>&nbsp;(?)</span></label>
-                    <textarea class="form-control" row="3" placeholder="表单描述"></textarea>
+                    <textarea class="form-control elementText" row="3" placeholder="表单描述" name="description"></textarea>
                 </div>
             </form>
         </section>
     </section>
 </div>
 <footer id="page_footer"></footer>
-<script src="assets/lib/jquery.js"></script>
-<script src="assets/lib/jquery-ui.min.js"></script>
-<script src="assets/lib/angular.js"></script>
+<script src="assets/lib/jquery/jquery.js"></script>
+<script src="assets/lib/jquery/jquery-ui.min.js"></script>
+<script src="assets/lib/angular/angular.js"></script>
 <script src="assets/js/element.js"></script>
 <script src="assets/js/elementUtil.js"></script>
 <script src="assets/js/index.js"></script>

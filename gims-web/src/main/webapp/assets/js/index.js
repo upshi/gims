@@ -46,6 +46,35 @@ function addClassHandle() {
 
         var uuid = $(this).attr('uuid');
         var ele = JSON.parse(sessionStorage.getItem(uuid));
+
+        /* 给所有输入框绑定失焦事件，将最新的值保存到sessionStorage中 */
+        $('.elementText').off('blur');
+        $('.elementText').on('blur', function () {
+            ele[$(this).attr('name')] = $(this).val();
+            sessionStorage.setItem(uuid, JSON.stringify(ele));
+        });
+        /* 把右边区域的值更新为当前ele里的值 */
+        $.each($('.elementText'), function (i, n) {
+            var name = $(n).attr('name');
+            $(n).val(ele[name]);
+        });
+
+        $('.elementRadio').off('change');
+        $('.elementRadio').on('change', function () {
+            ele[$(this).attr('name')] = $(this).val();
+            sessionStorage.setItem(uuid, JSON.stringify(ele));
+        });
+        /* 把右边区域的值更新为当前ele里的值 */
+        $.each($('.elementRadio'), function (i, n) {
+            var name = $(n).attr('name');
+            if($(n).val() == ele[name]) {
+                $(n).prop('checked', 'checked');
+                console.log($(n));
+            } else {
+                $(n).removeAttr('checked');
+            }
+        });
+
     });
 
     $("#drop li:last-child").mouseover(function () {

@@ -240,6 +240,7 @@ ul {
 .elementClick {
     border: 1px solid #E8DBAD;
     background-color: #FFF8EF;
+    outline-color: #E8DBAD;
 }
 /*右边选择框的长度*/
 .section_right_content textarea {
