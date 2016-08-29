@@ -19,18 +19,18 @@ var elements =
     ]
 var attributes =
     [
-        "<div class='form-group'><label class='control-label'>是否整数<span>&nbsp;(?)</span></label><br><label class='radio-inline'><input type='radio' value=''  name='3'>是</label><label class='radio-inline'><input type='radio' value=''  name='3'>否</label></div>",
+        "<div class='form-group'><label class='control-label'>是否整数<span>&nbsp;(?)</span></label><br><label class='radio-inline'><input type='radio' value='1' name='isInteger' class='elementRadio'>是</label><label class='radio-inline'><input type='radio' value='0' name='isInteger' class='elementRadio'>否</label></div>",
         "<div class='form-group'><label class='control-label'>最小值<span>&nbsp;(?)</span></label><input class='form-control elementText' type='text' name='minValue'></div>",
         "<div class='form-group'><label class='control-label'>最大值<span>&nbsp;(?)</span></label><input class='form-control elementText' type='text' name='maxValue'></div>",
         "<div class='form-group'><label class='control-label'>最小长度<span>&nbsp;(?)</span></label><input class='form-control elementText' type='text' name='minLength'></div>",
         "<div class='form-group'><label class='control-label'>最大长度<span>&nbsp;(?)</span></label><input class='form-control elementText' type='text' name='maxLength'></div>",
         "<div class='form-group'><label class='control-label'>默认值<span>&nbsp;(?)</span></label><input class='form-control elementText' type='text' name='defaultValue'></div>",
-        "<div class='form-group'><label class='control-label'>多行文本的行数<span>&nbsp;(?)</span></label><select class='form-control'><option value=''>3</option><option value=''>5</option><option value=''>10</option><option value=''>15</option><option value=''>20</option></select></div>",
-        "<div class='form-group'><label class='control-label'>宽度<span>&nbsp;(?)</span></label><select class='form-control'><option value=''>充满整行</option><option value=''>整行的1/2</option><option value=''>整行的1/3</option></select></div>",
-        "<div class='form-group'><label class='control-label'>内宽<span>&nbsp;(?)</span></label><select class='form-control'><option value=''>短</option><option value=''>中</option><option value=''>长</option></select></div>",
-        "<div class='form-group'><label class='control-label'>分隔符<span>&nbsp;(?)</span></label><select class='form-control'><option value=''>无</option><option value=''>-</option><option value=''>()</option></select></div>",
-        "<div class='form-group'><label class='control-label'>分隔符<span>&nbsp;(?)</span></label><select class='form-control'><option value=''>无</option><option value=''>-</option><option value=''>/</option><option value=''>()</option></select></div>",
-        "<div class='form-group'><label class='control-label'>布局<span>&nbsp;(?)</span></label><select class='form-control'><option value=''>一列</option><option value=''>两列</option><option value=''>三列</option><option value=''>自由</option></select></div>"
+        "<div class='form-group'><label class='control-label'>多行文本的行数<span>&nbsp;(?)</span></label><select class='form-control elementSelect' name='rows'><option value='3'>3</option><option value='5'>5</option><option value='10'>10</option><option value='15'>15</option><option value='20'>20</option></select></div>",
+        "<div class='form-group'><label class='control-label'>宽度<span>&nbsp;(?)</span></label><select class='form-control elementSelect' name='width'><option value='2'>充满整行</option><option value='1'>整行的1/2</option><option value='0'>整行的1/3</option></select></div>",
+        "<div class='form-group'><label class='control-label'>内宽<span>&nbsp;(?)</span></label><select class='form-control elementSelect' name='innerWidth'><option value='0'>短</option><option value='1'>中</option><option value='2'>长</option></select></div>",
+        "<div class='form-group'><label class='control-label'>分隔符<span>&nbsp;(?)</span></label><select class='form-control elementSelect' name='telDelimiter'><option value=''>无</option><option value='-'>-</option><option value='()'>()</option></select></div>",
+        "<div class='form-group'><label class='control-label'>分隔符<span>&nbsp;(?)</span></label><select class='form-control elementSelect' name='dateDelimiter'><option value=''>无</option><option value='-'>-</option><option value='/'>/</option></select></div>",
+        "<div class='form-group'><label class='control-label'>布局<span>&nbsp;(?)</span></label><select class='form-control elementSelect' name='layout'><option value='1'>一列</option><option value='2'>两列</option><option value='3'>三列</option><option value='0'>自由</option></select></div>"
     ]
 var mapper = [
     [],//0
