@@ -59,6 +59,7 @@ function addClassHandle() {
             $(n).val(ele[name]);
         });
 
+        /*给所有的radio绑定change事件*/
         $('.elementRadio').off('change');
         $('.elementRadio').on('change', function () {
             ele[$(this).attr('name')] = $(this).val();
@@ -68,13 +69,31 @@ function addClassHandle() {
         $.each($('.elementRadio'), function (i, n) {
             var name = $(n).attr('name');
             if($(n).val() == ele[name]) {
-                $(n).prop('checked', 'checked');
+                $(n).prop('checked', 'checked');//jquery1.9以上不能用attr()
                 console.log($(n));
             } else {
                 $(n).removeAttr('checked');
             }
         });
 
+        /*给所有的select绑定change事件*/
+        $('.elementSelect').off('change');
+        $('.elementSelect').on('change', function () {
+            ele[$(this).attr('name')] = $(this).val();
+            sessionStorage.setItem(uuid, JSON.stringify(ele));
+        });
+        /* 把右边区域的值更新为当前ele里的值 */
+        $.each($('.elementSelect'), function (i, n) {
+            var name = $(n).attr('name');
+            /*遍历当前select下的所有option，比较option的值和ele的是否相同*/
+            $.each($(this).children('option'), function (index,opt) {
+                if($(opt).val() == ele[name]) {
+                    $(opt).attr('selected', 'selected');
+                    $(opt).siblings().removeAttr('selected');//移除其他option的selected
+                    return false;//跳出循环
+                }
+            })
+        });
     });
 
     $("#drop li:last-child").mouseover(function () {
