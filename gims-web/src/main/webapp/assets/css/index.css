@@ -105,6 +105,11 @@ ul {
     list-style: none;
 }
 
+.eleBox {
+    width: 150px;
+    text-align: center;
+}
+
 /*主体部分左边内容区的li标签样式*/
 .section_left_content li {
     height: 30px;
