@@ -54,3 +54,10 @@ function guid() {
 
     return s4() + s4() + s4() + s4();
 }
+
+
+var middleHeight = $(window).height() - 150;
+$('.section_middle_content').css({"max-height":middleHeight});
+
+var rightHeight = $(window).height() - 100;
+$('.section_right_content').css({"max-height":rightHeight});

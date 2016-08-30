@@ -11,133 +11,114 @@
     <title>index</title>
 </head>
 <body>
-<!--页面头部-->
-<header id="page_header row">
-    <!--导航部分-->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <ul>
-            <li class="active"><a href=""><spn class="glyphicon glyphicon-file"></spn>表单</a></li>
-            <li><a href=""><spn class="glyphicon glyphicon-tasks"></spn>报表</a></li>
-            <li><a href=""><spn class="glyphicon glyphicon-user"></spn>用户</a></li>
-            <li><a href=""><spn class="glyphicon glyphicon-thumbs-up"></spn>联系我们</a></li>
-        </ul>
-    </nav>
-</header>
+
 <div class="content" ng-controller="appController">
-    <header>
-        <div class="sheetName col-sm-12">
-            <spn class="glyphicon glyphicon-pencil"></spn>
-            <span ng-bind="sheet.sheetName"></span>
-        </div>
-    </header>
-    <section class="section_left col-sm-2">
-        <section>
-            <header class="section_left_header col-sm-12"><p>通用字段</p></header>
-            <ul class="section_left_content col-sm-12">
-                <li draggable="true" class="row" tag="0">
-                    <div class="eleBox"><spn class="glyphicon glyphicon-play-circle col-sm-1"></spn>标签</div>
+    <div class="section_left">
+        <header class="section_left_header"><p>通用字段</p></header>
+        <div>
+            <ul class="section_left_content">
+                <li draggable="true" tag="0">
+                    <div class="eleBox"><span class="glyphicon glyphicon-play-circle"></span>标签</div>
                 </li>
-                <li draggable="true" class="row" tag="1">
-                    <div class="eleBox"><spn class="glyphicon glyphicon-book col-sm-1"></spn>单行文本</div>
+                <li draggable="true" tag="1">
+                    <div class="eleBox"><span class="glyphicon glyphicon-book"></span>单行文本</div>
                 </li>
-                <li draggable="true" class="row" tag="2">
-                    <div class="eleBox"><spn class="glyphicon glyphicon-play-circle col-sm-1"></spn>多行文本</div>
+                <li draggable="true" tag="2">
+                    <div class="eleBox"><span class="glyphicon glyphicon-play-circle"></span>多行文本</div>
                 </li>
-                <li draggable="true" class="row" tag="3">
-                    <div class="eleBox"><spn class="glyphicon glyphicon-book col-sm-1"></spn>电子邮箱</div>
+                <li draggable="true"  tag="3">
+                    <div class="eleBox"><span class="glyphicon glyphicon-book"></span>电子邮箱</div>
                 </li>
-                <li draggable="true" class="row" tag="4">
-                    <div class="eleBox"><spn class="glyphicon glyphicon-play-circle col-sm-1"></spn>数字框</div>
+                <li draggable="true"  tag="4">
+                    <div class="eleBox"><span class="glyphicon glyphicon-play-circle"></span>数字框</div>
                 </li>
-                <li draggable="true" class="row" tag="5">
-                    <div class="eleBox"><spn class="glyphicon glyphicon-book col-sm-1"></spn>身份证号</div>
+                <li draggable="true"  tag="5">
+                    <div class="eleBox"><span class="glyphicon glyphicon-book"></span>身份证号</div>
                 </li>
-                <li draggable="true" class="row" tag="6">
-                    <div class="eleBox"><spn class="glyphicon glyphicon-play-circle col-sm-1"></spn>邮政编码</div>
+                <li draggable="true"  tag="6">
+                    <div class="eleBox"><span class="glyphicon glyphicon-play-circle"></span>邮政编码</div>
                 </li>
-                <li draggable="true" class="row" tag="7">
-                    <div class="eleBox"><spn class="glyphicon glyphicon-book col-sm-1"></spn>移动电话</div>
+                <li draggable="true"  tag="7">
+                    <div class="eleBox"><span class="glyphicon glyphicon-book"></span>移动电话</div>
                 </li>
-                <li draggable="true" class="row" tag="8">
-                    <div class="eleBox"><spn class="glyphicon glyphicon-play-circle col-sm-1"></spn>座机</div>
+                <li draggable="true"  tag="8">
+                    <div class="eleBox"><span class="glyphicon glyphicon-play-circle"></span>座机</div>
                 </li>
-                <li draggable="true" class="row" tag="9">
-                    <div class="eleBox"><spn class="glyphicon glyphicon-book col-sm-1"></spn>地址</div>
+                <li draggable="true"  tag="9">
+                    <div class="eleBox"><span class="glyphicon glyphicon-book"></span>地址</div>
                 </li>
-                <li draggable="true" class="row" tag="10">
-                    <div class="eleBox"><spn class="glyphicon glyphicon-play-circle col-sm-1"></spn>日期</div>
+                <li draggable="true"  tag="10">
+                    <div class="eleBox"><span class="glyphicon glyphicon-play-circle"></span>日期</div>
                 </li>
-                <li draggable="true" class="row" tag="11">
-                    <div class="eleBox"><spn class="glyphicon glyphicon-book col-sm-1"></spn>年龄</div>
+                <li draggable="true"  tag="11">
+                    <div class="eleBox"><span class="glyphicon glyphicon-book"></span>年龄</div>
                 </li>
-                <li draggable="true" class="row" tag="12">
-                    <div class="eleBox"><spn class="glyphicon glyphicon-play-circle col-sm-1"></spn>单选框</div>
+                <li draggable="true"  tag="12">
+                    <div class="eleBox"><span class="glyphicon glyphicon-play-circle"></span>单选框</div>
                 </li>
-                <li draggable="true" class="row" tag="13">
-                    <div class="eleBox"><spn class="glyphicon glyphicon-book col-sm-1"></spn>多选框</div>
+                <li draggable="true"  tag="13">
+                    <div class="eleBox"><span class="glyphicon glyphicon-book"></span>多选框</div>
                 </li>
-                <li draggable="true" class="row" tag="14">
-                    <div class="eleBox"><spn class="glyphicon glyphicon-play-circle col-sm-1"></spn>下拉框</div>
+                <li draggable="true"  tag="14">
+                    <div class="eleBox"><span class="glyphicon glyphicon-play-circle"></span>下拉框</div>
                 </li>
-                <li draggable="true" class="row" tag="15">
-                    <div class="eleBox"><spn class="glyphicon glyphicon-book col-sm-1"></spn>多级下拉框</div>
+                <li draggable="true"  tag="15">
+                    <div class="eleBox"><span class="glyphicon glyphicon-book"></span>多级下拉框</div>
                 </li>
             </ul>
-        </section>
-    </section>
-    <section class="section_middle col-sm-7">
-        <header class="section_middle_header row"><p ng-bind="sheet.sheetName"></p></header>
-        <ul id="drop" class="section_middle_content row"></ul>
-        <footer class="section_middle_footer row">
+        </div>
+    </div>
+    <div class="section_middle">
+        <header class="section_middle_header"><p ng-bind="sheet.sheetName"></p></header>
+        <ul id="drop" class="section_middle_content"></ul>
+        <footer class="section_middle_footer">
             <button class="btn btn-primary">保存</button>
         </footer>
-    </section>
-    <section class="section_right col-sm-3">
-        <section>
-            <header class="section_right_header col-sm-12"><p>表单属性</p></header>
-            <form class="section_right_content col-sm-12">
-                <div class="form-group">
-                    <label class="control-label">元素名称<span>&nbsp;(?)</span></label>
-                    <input class="form-control elementText" type="text" name="name">
-                </div>
-                <div class="form-group">
-                    <label class="control-label">列名<span>&nbsp;(?)</span></label>
-                    <input class="form-control elementText" type="text" name="columnName">
-                </div>
-                <div class="form-group">
-                    <label class="control-label">是否必须<span>&nbsp;(?)</span></label><br>
-                    <label class="radio-inline">
-                        <input type="radio" value="1" name="isRequired" class="elementRadio">是
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" value="0" name="isRequired" class="elementRadio">否
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">是否可见<span>&nbsp;(?)</span></label><br>
-                    <label class="radio-inline">
-                        <input type="radio" value="1" name="isVisible" class="elementRadio">是
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" value="0" name="isVisible" class="elementRadio">否
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">是否有对应代码<span>&nbsp;(?)</span></label><br>
-                    <label class="radio-inline">
-                        <input type="radio" value="1" name="hasCode" class="elementRadio">是
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" value="0" name="hasCode" class="elementRadio">否
-                    </label>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">描述<span>&nbsp;(?)</span></label>
-                    <textarea class="form-control elementText" row="3" placeholder="表单描述" name="description"></textarea>
-                </div>
-            </form>
-        </section>
-    </section>
+    </div>
+    <div class="section_right">
+        <header class="section_right_header"><p>表单属性</p></header>
+        <form class="section_right_content">
+            <div class="form-group">
+                <label class="control-label">元素名称<span>&nbsp;(?)</span></label>
+                <input class="form-control elementText" type="text" name="name">
+            </div>
+            <div class="form-group">
+                <label class="control-label">列名<span>&nbsp;(?)</span></label>
+                <input class="form-control elementText" type="text" name="columnName">
+            </div>
+            <div class="form-group">
+                <label class="control-label">是否必须<span>&nbsp;(?)</span></label><br>
+                <label class="radio-inline">
+                    <input type="radio" value="1" name="isRequired" class="elementRadio">是
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" value="0" name="isRequired" class="elementRadio">否
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="control-label">是否可见<span>&nbsp;(?)</span></label><br>
+                <label class="radio-inline">
+                    <input type="radio" value="1" name="isVisible" class="elementRadio">是
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" value="0" name="isVisible" class="elementRadio">否
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="control-label">是否有对应代码<span>&nbsp;(?)</span></label><br>
+                <label class="radio-inline">
+                    <input type="radio" value="1" name="hasCode" class="elementRadio">是
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" value="0" name="hasCode" class="elementRadio">否
+                </label>
+            </div>
+            <div class="form-group">
+                <label class="control-label">描述<span>&nbsp;(?)</span></label>
+                <textarea class="form-control elementText" row="3" placeholder="表单描述" name="description"></textarea>
+            </div>
+        </form>
+    </div>
 </div>
 <footer id="page_footer"></footer>
 <script src="assets/lib/jquery/jquery.js"></script>
