@@ -12,5 +12,9 @@ import java.util.List;
  */
 
 public interface IDeptDao {
+
+    void add(Dept dept);
+
     List<Dept> getAllColleges();
+
 }

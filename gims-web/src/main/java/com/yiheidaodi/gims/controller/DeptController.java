@@ -34,4 +34,16 @@ public class DeptController {
         return map;
     }
 
+    @RequestMapping("/addCollege")
+    @ResponseBody
+    public Map<String, Object> addCollege(String name) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        Dept college = new Dept(null, name, "", 1);
+        deptService.add(college);
+        map.put("college", college);
+        return map;
+    }
+
+
+
 }

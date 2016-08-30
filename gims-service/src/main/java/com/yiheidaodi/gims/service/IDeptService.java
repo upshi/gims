@@ -12,5 +12,9 @@ import java.util.List;
  */
 
 public interface IDeptService {
+
+    void add(Dept dept);
+
     List<Dept> collegeList();
+
 }
