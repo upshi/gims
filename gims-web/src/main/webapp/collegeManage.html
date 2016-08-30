@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>毕业生信息管理系统</title>
+    <link rel="stylesheet" href="assets/lib/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/collegeManage.css">
+    <script src="assets/lib/jquery/jquery.js"></script>
+</head>
+
+<body ng-app="app">
+
+<!-- 加载导航 -->
+<div ng-include="'nav.html'"></div>
+
+<div class="content">
+    <!-- 加载侧边栏 -->
+    <div ng-include="'admin-left.html'"></div>
+
+    <div id="right">
+        <div class="panel panel-success">
+            <div class="panel-heading">学院管理</div>
+            <div class="panel-body" ng-controller="collegeController" ng-init="init()">
+                <div class="row operation">
+                    <button type="button" class="btn btn-default">添加学院</button>
+                </div>
+                <div id="colleges">
+                    <label class="college" ng-repeat="c in colleges">{{ c.name  }}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 加载底部 -->
+<div ng-include="'footer.html'"></div>
+
+<script src="assets/lib/bootstrap/bootstrap.js"></script>
+<script src="assets/lib/angular/angular.js"></script>
+<script src="assets/js/collegeManage.js"></script>
+</body>
+</html>

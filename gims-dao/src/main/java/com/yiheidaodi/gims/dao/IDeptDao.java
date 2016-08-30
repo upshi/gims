@@ -1,5 +1,9 @@
 package com.yiheidaodi.gims.dao;
 
+import com.yiheidaodi.gims.model.Dept;
+
+import java.util.List;
+
 /**
  * gims com.yiheidaodi.gims.service
  * 描述：
@@ -8,4 +12,5 @@ package com.yiheidaodi.gims.dao;
  */
 
 public interface IDeptDao {
+    List<Dept> getAllColleges();
 }

@@ -11,9 +11,9 @@ import java.util.List;
 
 public class Sheet {
 
-    public static final Integer STATUS_CREATING = 0;
-    public static final Integer STATUS_USING = 1;
-    public static final Integer STATUS_USED = 2;
+    public static final int STATUS_CREATING = 0;
+    public static final int STATUS_USING = 1;
+    public static final int STATUS_USED = 2;
 
     private String id;
     private String name;        //表名称

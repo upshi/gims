@@ -15,15 +15,15 @@ public class Element {
     * /
 
     /* 宽度 */
-    public static final Integer WIDTH_SHORT = 0;
-    public static final Integer WIDTH_MIDDLE = 1;
-    public static final Integer WIDTH_LONG = 2;
+    public static final int WIDTH_SHORT = 0;
+    public static final int WIDTH_MIDDLE = 1;
+    public static final int WIDTH_LONG = 2;
 
     /* 内宽 */
 
-    public static final Integer INNER_WIDTH_SHORT = 0;
-    public static final Integer INNER_WIDTH_MIDDLE = 1;
-    public static final Integer INNER_WIDTH_LONG = 2;
+    public static final int INNER_WIDTH_SHORT = 0;
+    public static final int INNER_WIDTH_MIDDLE = 1;
+    public static final int INNER_WIDTH_LONG = 2;
 
     /* 分隔符 */
     public static final String DELIMITER_NONE = "";
@@ -32,36 +32,36 @@ public class Element {
     public static final String DELIMITER_PAREN = "()";
 
     /* 布局 */
-    public static final Integer LAYOUT_FREE = 0;
-    public static final Integer LAYOUT_SINGLE = 1;
-    public static final Integer LAYOUT_DOUBLE = 2;
-    public static final Integer LAYOUT_TRIPLE = 3;
+    public static final int LAYOUT_FREE = 0;
+    public static final int LAYOUT_SINGLE = 1;
+    public static final int LAYOUT_DOUBLE = 2;
+    public static final int LAYOUT_TRIPLE = 3;
 
     /* 可见性 */
-    public static final Integer INVISIBLE = 0;
-    public static final Integer VISIBLE = 1;
+    public static final int INVISIBLE = 0;
+    public static final int VISIBLE = 1;
 
     /* 类型 */
-    public static final Integer TYPE_LABEL = 0;
-    public static final Integer TYPE_SINGLE_TEXT = 1;
-    public static final Integer TYPE_MULTI_TEXT = 2;
-    public static final Integer TYPE_EMAIL = 3;
+    public static final int TYPE_LABEL = 0;
+    public static final int TYPE_SINGLE_TEXT = 1;
+    public static final int TYPE_MULTI_TEXT = 2;
+    public static final int TYPE_EMAIL = 3;
 
 
-    public static final Integer TYPE_NUMBER = 4;
-    public static final Integer TYPE_IDENTITY_NUMBER = 5;
-    public static final Integer TYPE_ZIPCODE = 55;
-    public static final Integer TYPE_MOBILEPHONE = 6;
-    public static final Integer TYPE_TELEPHONE = 7;
+    public static final int TYPE_NUMBER = 4;
+    public static final int TYPE_IDENTITY_NUMBER = 5;
+    public static final int TYPE_ZIPCODE = 55;
+    public static final int TYPE_MOBILEPHONE = 6;
+    public static final int TYPE_TELEPHONE = 7;
 
-    public static final Integer TYPE_ADDRESS = 8;
-    public static final Integer TYPE_DATE = 9;
-    public static final Integer TYPE_AGE = 10;
+    public static final int TYPE_ADDRESS = 8;
+    public static final int TYPE_DATE = 9;
+    public static final int TYPE_AGE = 10;
 
-    public static final Integer TYPE_SINGLE_RADIO = 11;
-    public static final Integer TYPE_MULTI_CHECKBOX = 12;
-    public static final Integer TYPE_SINGLE_SELECT = 13;
-    public static final Integer TYPE_MULTI_SELECT = 14;
+    public static final int TYPE_SINGLE_RADIO = 11;
+    public static final int TYPE_MULTI_CHECKBOX = 12;
+    public static final int TYPE_SINGLE_SELECT = 13;
+    public static final int TYPE_MULTI_SELECT = 14;
 
 
 

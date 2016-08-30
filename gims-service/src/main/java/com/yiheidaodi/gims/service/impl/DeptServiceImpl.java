@@ -1,7 +1,12 @@
 package com.yiheidaodi.gims.service.impl;
 
+import com.yiheidaodi.gims.dao.IDeptDao;
+import com.yiheidaodi.gims.model.Dept;
 import com.yiheidaodi.gims.service.IDeptService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * gims com.yiheidaodi.gims.service.impl
@@ -12,4 +17,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class DeptServiceImpl implements IDeptService {
+
+    @Autowired
+    private IDeptDao deptDao;
+
+    @Override
+    public List<Dept> collegeList() {
+        return deptDao.getAllColleges();
+    }
 }
