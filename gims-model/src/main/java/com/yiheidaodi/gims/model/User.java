@@ -9,9 +9,9 @@ package com.yiheidaodi.gims.model;
 
 public class User {
 
-    public static final Integer LEVEL_LOW = 0;
-    public static final Integer LEVEL_MIDDLE = 1;
-    public static final Integer LEVEL_HIGH = 2;
+    public static final int LEVEL_LOW = 0;
+    public static final int LEVEL_MIDDLE = 1;
+    public static final int LEVEL_HIGH = 2;
 
 
     private String id;
