@@ -6,17 +6,7 @@
 body {
     font-family: '微软雅黑', 'Times New Roman', Times, serif;
     background: url("../images/bg.png") repeat;
-}
-
-/*页面头部*/
-#page_header {
-    background-color: rgb(68, 68, 68);
-    width: 100%;
-    height: 50px;
-    line-height: 50px;
-    vertical-align: middle;
-    position: fixed;
-    z-index: 1000;
+    overflow: hidden;
 }
 
 /*去除所有的ul自带样式*/
@@ -24,59 +14,10 @@ ul {
     list-style: none;
 }
 
-/*导航栏部分开始*/
-.navbar ul {
-    margin-left: 30%;
-}
-
-.navbar li:first-child {
-    border-left: 1px solid rgb(34, 34, 34);
-}
-
-.navbar li:last-child {
-    border-right: none;
-    border-right: 1px solid rgb(34, 34, 34);
-}
-
-.navbar li {
-    display: block;
-    width: 120px;
-    float: left;
-    background-color: #000;
-    border-right: 1px solid rgb(68, 68, 68);
-}
-
-.navbar li a {
-    display: block;
-    border-left: 1px solid transparent;
-    border-right: 1px solid transparent;
-    text-align: center;
-    font-size: 15px;
-    line-height: 48px;
-    color: #eee;
-    text-decoration: none;
-}
-
-.navbar li a:hover {
-    background-color: rgb(68, 68, 68);
-}
-
 /*主体内容区，固定宽度1246px，居中*/
 .content {
     width: 1100px;
-    position: relative;
-    top:95px;
-    left:50%;
-    margin-left:-550px;
-}
-
-/*页面主体区域头部，用来展示表单名称*/
-.sheetName {
-    font-size: 18px;
-    font-weight: bolder;
-    margin: -10px 0 5px 0;
-    position: fixed;
-    top: 65px;
+    margin: 50px auto;
 }
 
 /*修改默认的字体文件的大小*/
@@ -84,6 +25,12 @@ ul {
     font-size: 90%;
     margin-right: 10px;
     margin-top: 8px;
+}
+
+.section_left {
+    width: 150px;
+    float: left;
+    margin-right: 15px;
 }
 
 /*主体部分左边、右边的头部样式*/
@@ -97,19 +44,26 @@ ul {
     border-bottom: none;
 }
 
+.section_left_header {
+    padding-left: 15px;
+}
+
 /*主体部分左边内容区*/
 .section_left_content {
+    width: 150px;
     min-height: 400px;
     background-color: #fff;
     border: 1px solid rgb(221, 221, 221);
     list-style: none;
 }
+
 .section_left_content p {
     width: 150px;
     margin: 0 auto;
 }
+
 .eleBox {
-    width: 150px;
+    width: 110px;
     margin: 0 auto;
 }
 
@@ -120,41 +74,50 @@ ul {
     border-bottom: 1px solid #ccc;
 }
 
+.section_middle {
+    width: 700px;
+    float: left;
+    position: relative;
+}
+
 /*主体部分中间的头部样式*/
 .section_middle_header {
-    height: 60px;
-    line-height: 60px;
-    font-size: 18px;
+    width: 700px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
     font-weight: bolder;
     border: 1px dashed #c0c0c0;
     background-color: rgb(255, 251, 239);
     padding-left: 10px;
+    position: absolute;
 }
 
 /*主体部分中间的内容区样式*/
 .section_middle_content {
-    min-height: 400px;
+    min-height: 450px;
     background-color: #fff;
     border: 1px solid rgb(221, 221, 221);
-    padding-top: 10px;
+    margin-top: 40px;
     font-size: 14px;
+    max-height: 500px;
+    overflow: auto;
 }
 
 /*主体部分中间区的底部样式，中间内容区为空时隐藏*/
 .section_middle_footer {
-    height: 60px;
-    line-height: 60px;
-    font-size: 22px;
-    font-weight: bolder;
+    height: 45px;
+    line-height: 45px;
     background-color: rgb(241, 241, 241);
     border: 1px solid #ccc;
     border-top: none;
     text-align: center;
-    display: none;
+    margin-top: -10px;
 }
 
 /*设置中间区底部按钮的样式*/
 .section_middle_footer .btn {
+    margin-top: -5px;
     width: 100px;
 }
 
@@ -164,7 +127,7 @@ ul {
     cursor: move;
     margin: 5px auto;
     padding-left: 20px;
-    padding-top:10px;
+    padding-top: 10px;
     padding-bottom: 10px;
     clear: both;
     /*background-color:#FFF8EF;*/
@@ -174,6 +137,7 @@ ul {
 #drop li input {
     width: 550px;
     height: 30px;
+    border: 1px solid #ccc;
 }
 
 /*默认中间区li标签下的所有input元素和textarea元素的鼠标样式*/
@@ -191,6 +155,7 @@ ul {
     width: 550px;
     height: 65px;
     background-color: #fff;
+    border: 1px solid #ccc;
 }
 
 /*标签描述的样式*/
@@ -231,16 +196,6 @@ ul {
     margin-right: 5px;
 }
 
-
-/*主体部分右边的内容区样式*/
-.section_right_content {
-    min-height: 400px;
-    background-color: #fff;
-    padding-top: 10px;
-    border: 1px solid #ccc;
-    border-top: none;
-}
-
 /*排序时，鼠标滑过li标签时的样式*/
 .elementHover {
     border: 1px dashed #ccc;
@@ -252,9 +207,37 @@ ul {
     background-color: #FFF8EF;
     outline-color: #E8DBAD;
 }
+
+.section_right {
+    width: 220px;
+    float: left;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.section_right_header {
+    padding-left: 10px;
+    width: 220px;
+    position: absolute;
+}
+
+/*主体部分右边的内容区样式*/
+.section_right_content {
+    width: 220px;
+    min-height: 400px;
+    background-color: #fff;
+    padding: 10px 10px 0 10px;
+    border: 1px solid #ccc;
+    border-top: none;
+    position: absolute;
+    top: 40px;
+    overflow: auto;
+}
+
 /*右边选择框的长度*/
 .section_right_content textarea {
-    width:213px;
+    width: 200px;
     height: 74px;
 }
 
@@ -263,13 +246,15 @@ ul {
 }
 
 #drop li .shortElement {
-    width:150px;
+    width: 150px;
 }
+
 #drop li .middleElement {
-    width:300px;
+    width: 300px;
 }
+
 #drop li .longElement {
-    width:550px;
+    width: 550px;
 }
 
 .address {
@@ -277,4 +262,21 @@ ul {
     height: 30px;
     margin-right: 5px;
     margin-bottom: 5px;
+}
+
+/*设置滚动条样式*/
+::-webkit-scrollbar-track-piece {
+    background-color: #fff; /*滚动条的背景颜色*/
+    -webkit-border-radius: 0; /*滚动条的圆角宽度*/
+}
+
+::-webkit-scrollbar {
+    width: 2px; /*滚动条的宽度*/
+    height: 5px;/*滚动条的高度*/
+}
+
+::-webkit-scrollbar-thumb:vertical { /*垂直滚动条的样式*/
+    height: 50px;
+    background-color: rgb(216,216,216);
+    -webkit-border-radius: 4px;
 }
