@@ -17,52 +17,52 @@
         <header class="section_left_header"><p>通用字段</p></header>
         <div>
             <ul class="section_left_content">
-                <li draggable="true" tag="0">
+                <li draggable="true" tag="0" ng-click="onclick(0)">
                     <div class="eleBox"><span class="glyphicon glyphicon-play-circle"></span>标签</div>
                 </li>
-                <li draggable="true" tag="1">
+                <li draggable="true" tag="1" ng-click="onclick(1)">
                     <div class="eleBox"><span class="glyphicon glyphicon-book"></span>单行文本</div>
                 </li>
-                <li draggable="true" tag="2">
+                <li draggable="true" tag="2" ng-click="onclick(2)">
                     <div class="eleBox"><span class="glyphicon glyphicon-play-circle"></span>多行文本</div>
                 </li>
-                <li draggable="true"  tag="3">
+                <li draggable="true"  tag="3" ng-click="onclick(3)">
                     <div class="eleBox"><span class="glyphicon glyphicon-book"></span>电子邮箱</div>
                 </li>
-                <li draggable="true"  tag="4">
+                <li draggable="true"  tag="4" ng-click="onclick(4)">
                     <div class="eleBox"><span class="glyphicon glyphicon-play-circle"></span>数字框</div>
                 </li>
-                <li draggable="true"  tag="5">
+                <li draggable="true"  tag="5" ng-click="onclick(5)">
                     <div class="eleBox"><span class="glyphicon glyphicon-book"></span>身份证号</div>
                 </li>
-                <li draggable="true"  tag="6">
+                <li draggable="true"  tag="6" ng-click="onclick(6)">
                     <div class="eleBox"><span class="glyphicon glyphicon-play-circle"></span>邮政编码</div>
                 </li>
-                <li draggable="true"  tag="7">
+                <li draggable="true"  tag="7" ng-click="onclick(7)">
                     <div class="eleBox"><span class="glyphicon glyphicon-book"></span>移动电话</div>
                 </li>
-                <li draggable="true"  tag="8">
+                <li draggable="true"  tag="8" ng-click="onclick(8)">
                     <div class="eleBox"><span class="glyphicon glyphicon-play-circle"></span>座机</div>
                 </li>
-                <li draggable="true"  tag="9">
+                <li draggable="true"  tag="9" ng-click="onclick(9)">
                     <div class="eleBox"><span class="glyphicon glyphicon-book"></span>地址</div>
                 </li>
-                <li draggable="true"  tag="10">
+                <li draggable="true"  tag="10" ng-click="onclick(10)">
                     <div class="eleBox"><span class="glyphicon glyphicon-play-circle"></span>日期</div>
                 </li>
-                <li draggable="true"  tag="11">
+                <li draggable="true"  tag="11" ng-click="onclick(11)">
                     <div class="eleBox"><span class="glyphicon glyphicon-book"></span>年龄</div>
                 </li>
-                <li draggable="true"  tag="12">
+                <li draggable="true"  tag="12" ng-click="onclick(12)">
                     <div class="eleBox"><span class="glyphicon glyphicon-play-circle"></span>单选框</div>
                 </li>
-                <li draggable="true"  tag="13">
+                <li draggable="true"  tag="13" ng-click="onclick(13)">
                     <div class="eleBox"><span class="glyphicon glyphicon-book"></span>多选框</div>
                 </li>
-                <li draggable="true"  tag="14">
+                <li draggable="true"  tag="14" ng-click="onclick(14)">
                     <div class="eleBox"><span class="glyphicon glyphicon-play-circle"></span>下拉框</div>
                 </li>
-                <li draggable="true"  tag="15">
+                <li draggable="true"  tag="15" ng-click="onclick(15)">
                     <div class="eleBox"><span class="glyphicon glyphicon-book"></span>多级下拉框</div>
                 </li>
             </ul>
@@ -80,7 +80,7 @@
         <form class="section_right_content">
             <div class="form-group">
                 <label class="control-label">元素名称<span>&nbsp;(?)</span></label>
-                <input class="form-control elementText" type="text" name="name">
+                <input id="name" class="form-control elementText" type="text" name="name">
             </div>
             <div class="form-group">
                 <label class="control-label">列名<span>&nbsp;(?)</span></label>
@@ -115,7 +115,7 @@
             </div>
             <div class="form-group">
                 <label class="control-label">描述<span>&nbsp;(?)</span></label>
-                <textarea class="form-control elementText" row="3" placeholder="表单描述" name="description"></textarea>
+                <textarea class="form-control elementText" row="3" placeholder="字段描述" name="description"></textarea>
             </div>
         </form>
     </div>

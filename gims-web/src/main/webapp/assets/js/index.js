@@ -7,6 +7,18 @@ myApp.controller('appController', function ($scope) {
         widthFull: true,
         widthHalf: true
     };
+
+    $scope.onclick = function (tag) {
+        $('#drop').append(elements[tag]);
+        /*自动生成元素唯一的标识uuid*/
+        var uuid = guid();
+        /*为每个新添加的元素添加uuid属性*/
+        $("#drop li:last-child").attr("uuid", uuid);
+
+        var ele = eleInit(tag, uuid);//数组初始化，保存元素的所有属性和对应的值
+        sessionStorage.setItem(uuid, JSON.stringify(ele));
+        addClassHandle();
+    };
 });
 
 /*定义拖拽时，sortable 项目被约束的边界*/
@@ -14,23 +26,9 @@ $('#drop').sortable({
     containment: "parent"
 });
 
-var li = $(".section_left_content").children('li');
-
-$(li).on('click', function () {
-    var tag = $(this).attr('tag');
-    $('#drop').append(elements[tag]);
-    /*自动生成元素唯一的标识uuid*/
-    var uuid = guid();
-    /*为每个新添加的元素添加uuid属性*/
-    $("#drop li:last-child").attr("uuid", uuid);
-
-    var ele = eleInit(tag, uuid);//数组初始化，保存元素的所有属性和对应的值
-    sessionStorage.setItem(uuid, JSON.stringify(ele));
-    addClassHandle();
-});
-
 function addClassHandle() {
     $("#drop li:last-child").click(function () {
+        var currentLi = this;
         $(this).focus();
         $(this).siblings('li').removeClass('elementClick'); // 删除其他兄弟元素的样式
         $(this).addClass('elementClick'); // 添加当前元素的样式
@@ -52,6 +50,10 @@ function addClassHandle() {
         $('.elementText').on('blur', function () {
             ele[$(this).attr('name')] = $(this).val();
             sessionStorage.setItem(uuid, JSON.stringify(ele));
+            /* 如果当前是name输入框，修改中间对应的显示的值 */
+            if ($(this).attr('name') == 'name') {
+                $(currentLi).find('p').first().html($(this).val());
+            }
         });
         /* 把右边区域的值更新为当前ele里的值 */
         $.each($('.elementText'), function (i, n) {
@@ -68,7 +70,7 @@ function addClassHandle() {
         /* 把右边区域的值更新为当前ele里的值 */
         $.each($('.elementRadio'), function (i, n) {
             var name = $(n).attr('name');
-            if($(n).val() == ele[name]) {
+            if ($(n).val() == ele[name]) {
                 $(n).prop('checked', 'checked');//jquery1.9以上不能用attr()
                 console.log($(n));
             } else {
@@ -81,16 +83,77 @@ function addClassHandle() {
         $('.elementSelect').on('change', function () {
             ele[$(this).attr('name')] = $(this).val();
             sessionStorage.setItem(uuid, JSON.stringify(ele));
+
+            if ($(this).attr('name') == 'width') {
+                /* 2-整行；1-整行的1/2，0-整行的1/3 */
+                $(currentLi).find('input').removeClass();
+                if (ele.width == 2) {
+                    $(currentLi).find('input').addClass('longElement');
+                } else if (ele.width == 1) {
+                    $(currentLi).find('input').addClass('middleElement');
+                } else {
+                    $(currentLi).find('input').addClass('shortElement');
+                }
+            }
+            if ($(this).attr('name') == 'innerWidth') {
+                /* 2-长；1-中，0-短 */
+                $(currentLi).find('input').removeClass();
+                $(currentLi).find('select').removeClass();
+                if (ele.innerWidth == 2) {
+                    $(currentLi).find('input').addClass('longElement');
+                    $(currentLi).find('select').addClass('longElement');
+                } else if (ele.innerWidth == 1) {
+                    $(currentLi).find('input').addClass('middleElement');
+                    $(currentLi).find('select').addClass('middleElement');
+                } else {
+                    $(currentLi).find('input').addClass('shortElement');
+                    $(currentLi).find('select').addClass('shortElement');
+                }
+            }
+
+            if ($(this).attr('name') == 'layout') {
+                /* 0-自由，1-1列，2-2列，3-3列 */
+                if (ele.layout == 2) {
+                    $($(currentLi)[0]).removeAttr("style");
+                    $($(currentLi).find('span')[0]).removeAttr("style");
+                    $($(currentLi).find('span')[1]).removeAttr("style");
+                    $($(currentLi).find('span')[2]).removeAttr("style");
+                    $($(currentLi).find('span')[2]).css({"float": "left","margin-top": "-66px","margin-left": "300px"});
+                } else if (ele.layout == 3) {
+                    $($(currentLi)[0]).removeAttr("style");
+                    $($(currentLi).find('span')[0]).removeAttr("style");
+                    $($(currentLi).find('span')[1]).removeAttr("style");
+                    $($(currentLi).find('span')[2]).removeAttr("style");
+                    $($(currentLi).find('span')[0]).css({"margin-left": "0"});
+                    $($(currentLi).find('span')[1]).css({"float": "left", "margin": "-33px 100px 0 150px"});
+                    $($(currentLi).find('span')[2]).css({"float": "left","margin-left": "300px","margin-top": "-33px"});
+                } else if(ele.layout == 0) {
+                    $($(currentLi)[0]).removeAttr("style");
+                    $($(currentLi).find('span')[0]).removeAttr("style");
+                    $($(currentLi).find('span')[1]).removeAttr("style");
+                    $($(currentLi).find('span')[2]).removeAttr("style");
+                    $($(currentLi)[0]).css({"height":"70px"});
+                    $($(currentLi).find('span')[0]).css({"float": "left","margin":"0 10px 0 0"});
+                    $($(currentLi).find('span')[1]).css({"float": "left","margin":"0 10px 0 0"});
+                    $($(currentLi).find('span')[2]).css({"float": "left","margin":"0 10px 0 0"});
+                }else{
+                    $($(currentLi)[0]).removeAttr("style");
+                    $($(currentLi).find('span')[0]).removeAttr("style");
+                    $($(currentLi).find('span')[1]).removeAttr("style");
+                    $($(currentLi).find('span')[2]).removeAttr("style");
+                }
+            }
+
         });
         /* 把右边区域的值更新为当前ele里的值 */
         $.each($('.elementSelect'), function (i, n) {
             var name = $(n).attr('name');
             /*遍历当前select下的所有option，比较option的值和ele的是否相同*/
-            $.each($(this).children('option'), function (index,opt) {
-                if($(opt).val() == ele[name]) {
+            $.each($(this).children('option'), function (index, opt) {
+                if ($(opt).val() == ele[name]) {
                     $(opt).attr('selected', 'selected');
                     $(opt).siblings().removeAttr('selected');//移除其他option的selected
-                    return false;//跳出循环
+                    return false;//跳出循环;
                 }
             })
         });
@@ -101,3 +164,4 @@ function addClassHandle() {
         $(this).addClass('elementHover'); // 添加当前元素的样式
     });
 }
+

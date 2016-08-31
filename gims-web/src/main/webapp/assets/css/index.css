@@ -130,7 +130,7 @@ ul {
     padding-top: 10px;
     padding-bottom: 10px;
     clear: both;
-    /*background-color:#FFF8EF;*/
+   /* background-color:#FFF8EF;*/
 }
 
 /*默认中间内容区li标签下的input标签样式*/
@@ -169,6 +169,9 @@ ul {
     text-align: center;
 }
 
+.special b {
+    font-weight: 400;
+}
 /*input元素年龄下拉框的样式*/
 .age {
     width: 60px;
@@ -247,14 +250,17 @@ ul {
 
 #drop li .shortElement {
     width: 150px;
+    height: 30px;
 }
 
 #drop li .middleElement {
     width: 300px;
+    height: 30px;
 }
 
 #drop li .longElement {
     width: 550px;
+    height: 30px;
 }
 
 .address {
@@ -272,11 +278,11 @@ ul {
 
 ::-webkit-scrollbar {
     width: 2px; /*滚动条的宽度*/
-    height: 5px;/*滚动条的高度*/
+    height: 5px; /*滚动条的高度*/
 }
 
 ::-webkit-scrollbar-thumb:vertical { /*垂直滚动条的样式*/
     height: 50px;
-    background-color: rgb(216,216,216);
+    background-color: rgb(216, 216, 216);
     -webkit-border-radius: 4px;
 }

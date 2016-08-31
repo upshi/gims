@@ -55,7 +55,6 @@ function guid() {
     return s4() + s4() + s4() + s4();
 }
 
-
 var middleHeight = $(window).height() - 150;
 $('.section_middle_content').css({"max-height":middleHeight});
 
