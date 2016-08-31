@@ -20,6 +20,7 @@ public class Sheet {
     private List<Element> elements;
     private String createrId;           //创建者Id
     private String createTime;      //创建时间
+    private String owner;           //拥有者，学校或者某学院
     private String grade;           //年级
     private Integer status;         //状态
 
