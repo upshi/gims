@@ -22,7 +22,14 @@ public class DeptServiceImpl implements IDeptService {
     private IDeptDao deptDao;
 
     @Override
+    public void add(Dept dept) {
+        deptDao.add(dept);
+    }
+
+    @Override
     public List<Dept> collegeList() {
         return deptDao.getAllColleges();
     }
+
+
 }

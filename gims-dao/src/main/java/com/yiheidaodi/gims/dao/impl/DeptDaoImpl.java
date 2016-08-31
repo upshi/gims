@@ -26,6 +26,11 @@ public class DeptDaoImpl implements IDeptDao {
     MongoOperations mongoOps;
 
     @Override
+    public void add(Dept dept) {
+        mongoOps.insert(dept);
+    }
+
+    @Override
     public List<Dept> getAllColleges() {
         return mongoOps.find(new Query(where("isCollege").is(1)), Dept.class);
     }
