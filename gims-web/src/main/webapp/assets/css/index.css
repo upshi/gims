@@ -130,7 +130,7 @@ ul {
     padding-top: 10px;
     padding-bottom: 10px;
     clear: both;
-   /* background-color:#FFF8EF;*/
+    /* background-color:#FFF8EF;*/
 }
 
 /*默认中间内容区li标签下的input标签样式*/
@@ -152,6 +152,7 @@ ul {
 
 /*设置多行文本的默认样式*/
 #drop li textarea {
+    resize: none; /*彻底禁用拖动*/
     width: 550px;
     height: 65px;
     background-color: #fff;
@@ -172,6 +173,7 @@ ul {
 .special b {
     font-weight: 400;
 }
+
 /*input元素年龄下拉框的样式*/
 .age {
     width: 60px;
@@ -240,6 +242,7 @@ ul {
 
 /*右边选择框的长度*/
 .section_right_content textarea {
+    resize: none;/*彻底禁用拖动*/
     width: 200px;
     height: 74px;
 }
@@ -248,6 +251,10 @@ ul {
     background-color: #1b6d85;
 }
 
+#drop li .shorterElement {
+    width: 75px;
+    height: 30px;
+}
 #drop li .shortElement {
     width: 150px;
     height: 30px;

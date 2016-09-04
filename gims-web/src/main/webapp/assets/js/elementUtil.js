@@ -55,8 +55,19 @@ function guid() {
     return s4() + s4() + s4() + s4();
 }
 
+/* 设置中间和右边窗口的初始高度 */
 var middleHeight = $(window).height() - 150;
 $('.section_middle_content').css({"max-height":middleHeight});
 
 var rightHeight = $(window).height() - 100;
 $('.section_right_content').css({"max-height":rightHeight});
+
+/* 监听中间和右边窗口的高度是否发生改变，如果改变，自动调整为当前窗口的高度 */
+$(window).bind("resize",function() {
+    var middleHeight = $(window).height() - 150;
+    $('.section_middle_content').css({"max-height":middleHeight});
+
+    var rightHeight = $(window).height() - 100;
+    $('.section_right_content').css({"max-height":rightHeight});
+});
+

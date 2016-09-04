@@ -100,14 +100,14 @@ function addClassHandle() {
                 $(currentLi).find('input').removeClass();
                 $(currentLi).find('select').removeClass();
                 if (ele.innerWidth == 2) {
-                    $(currentLi).find('input').addClass('longElement');
-                    $(currentLi).find('select').addClass('longElement');
-                } else if (ele.innerWidth == 1) {
                     $(currentLi).find('input').addClass('middleElement');
                     $(currentLi).find('select').addClass('middleElement');
-                } else {
+                } else if (ele.innerWidth == 1) {
                     $(currentLi).find('input').addClass('shortElement');
                     $(currentLi).find('select').addClass('shortElement');
+                } else {
+                    $(currentLi).find('input').addClass('shorterElement');
+                    $(currentLi).find('select').addClass('shorterElement');
                 }
             }
 
