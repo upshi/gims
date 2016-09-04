@@ -17,14 +17,16 @@
 		p:prefix="/WEB-INF/views/" p:suffix=".jsp" />
 
 	<mvc:annotation-driven />
-	
+
+	<!--
 	<mvc:resources location="/assets/css/" mapping="/assets/css/**" />
 	<mvc:resources location="/assets/js/" mapping="/assets/js/**" />
 	<mvc:resources location="/assets/images/" mapping="/assets/images/**" />
 	<mvc:resources location="/assets/lib/" mapping="/assets/lib/**" />
 	<mvc:resources location="/assets/json/" mapping="/assets/json/**" />
+	<mvc:resources location="/templates/" mapping="/templates/**" />
 	<mvc:resources location="/" mapping="/**/*.html" />
-
+	-->
 	<!-- 开始   配置支持返回JSON数据 -->
 	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter" p:ignoreDefaultModelOnRedirect="true">
 		<property name="messageConverters">

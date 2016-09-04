@@ -5,33 +5,22 @@
     <title>毕业生信息管理系统</title>
     <link rel="stylesheet" href="assets/lib/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
     <script src="assets/lib/jquery/jquery.js"></script>
 </head>
 
-<body>
-<!-- 加载导航 -->
-<div id="nav"></div>
-<script>$('#nav').load('nav.html')</script>
+<body ng-app="app">
 
-<div class="content">
-    <!-- 加载侧边栏 -->
-    <div id="left"></div>
-    <script>$('#left').load('admin-left.html')</script>
+<div ui-view></div>
 
-    <div id="right">
-        <div class="panel panel-success">
-            <div class="panel-heading">Panel heading without title</div>
-            <div class="panel-body">
-                sss
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- 加载底部 -->
-<div id="footer"></div>
-<script>$('#footer').load('footer.html')</script>
 
 <script src="assets/lib/bootstrap/bootstrap.js"></script>
+<script src="assets/lib/angular/angular.js"></script>
+<script src="assets/lib/angular/angular-ui-router.js"></script>
+<script src="assets/js/admin/app.js"></script>
+<script src="assets/js/admin/controller.js"></script>
+<script src="assets/js/admin/directive.js"></script>
+<script src="assets/js/admin/filter.js"></script>
+<script src="assets/js/admin/services.js"></script>
 </body>
 </html>

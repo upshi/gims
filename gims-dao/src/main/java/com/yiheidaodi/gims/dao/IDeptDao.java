@@ -17,4 +17,7 @@ public interface IDeptDao {
 
     List<Dept> getAllColleges();
 
+    List<Dept> getAllDepts();
+
+    List<Dept> getOfficesByDeptName(String deptName);
 }

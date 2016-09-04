@@ -62,6 +62,7 @@ public class Element {
     public static final int TYPE_MULTI_CHECKBOX = 12;
     public static final int TYPE_SINGLE_SELECT = 13;
     public static final int TYPE_MULTI_SELECT = 14;
+    public static final int TYPE_SEPARATION = 15;
 
 
 
@@ -82,6 +83,7 @@ public class Element {
     private Integer isInteger;  //数字元素数字是否是整数
     private Integer minValue;   //数字元素的最小值
     private Integer maxValue;   //数字元素的最大值
+    private Integer tire;       //多级下拉框的层级
     private String item;    //单选、多选、下拉等的项
     private Integer innerWidth;  //某些不宜过长的元素的内宽
     private Integer layout;      //单选、多选的布局

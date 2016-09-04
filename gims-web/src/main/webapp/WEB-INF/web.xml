@@ -44,7 +44,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>SpringMVC DispatcherServlet</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
 
     <session-config>

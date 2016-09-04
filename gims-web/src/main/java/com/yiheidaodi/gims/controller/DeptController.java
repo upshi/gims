@@ -44,6 +44,44 @@ public class DeptController {
         return map;
     }
 
+    @RequestMapping("/deptList")
+    @ResponseBody
+    public Map<String, Object> deptList() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        List<Dept> depts = deptService.deptList();
+        map.put("depts", depts);
+        return map;
+    }
+
+    @RequestMapping("/addDept")
+    @ResponseBody
+    public Map<String, Object> addDept(String name) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        Dept dept = new Dept(null, name, "", 0);
+        deptService.add(dept);
+        map.put("dept", dept);
+        return map;
+    }
+
+    @RequestMapping("/officeList")
+    @ResponseBody
+    public Map<String, Object> officeManage(String deptName) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        List<Dept> offices = deptService.officeList(deptName);
+        map.put("offices", offices);
+        return map;
+    }
+
+    @RequestMapping("/addOffice")
+    @ResponseBody
+    public Map<String, Object> addOffice(String name, String office) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        Dept dept = new Dept(null, name, office, 0);
+        deptService.add(dept);
+        map.put("dept", dept);
+        return map;
+    }
+
 
 
 }

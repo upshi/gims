@@ -34,4 +34,14 @@ public class DeptDaoImpl implements IDeptDao {
     public List<Dept> getAllColleges() {
         return mongoOps.find(new Query(where("isCollege").is(1)), Dept.class);
     }
+
+    @Override
+    public List<Dept> getAllDepts() {
+        return mongoOps.find(new Query(where("isCollege").is(0).and("office").is("")), Dept.class);
+    }
+
+    @Override
+    public List<Dept> getOfficesByDeptName(String deptName) {
+        return mongoOps.find(new Query(where("isCollege").is(0).and("name").is(deptName)), Dept.class);
+    }
 }

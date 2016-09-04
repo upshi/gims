@@ -31,5 +31,15 @@ public class DeptServiceImpl implements IDeptService {
         return deptDao.getAllColleges();
     }
 
+    @Override
+    public List<Dept> deptList() {
+        return deptDao.getAllDepts();
+    }
+
+    @Override
+    public List<Dept> officeList(String deptName) {
+        return deptDao.getOfficesByDeptName(deptName);
+    }
+
 
 }

@@ -1,0 +1,45 @@
+<div class="panel panel-success">
+    <div class="panel-heading">部门管理</div>
+    <div class="panel-body" ng-init="init()">
+        <div class="row operation">
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal">添加部门</button>
+        </div>
+        <label class="deptLabel" ng-repeat="d in depts"><a ui-sref="index.dept.office({deptName:d.name})">{{ d.name  }}</a></label>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">添加部门</h4>
+            </div>
+            <div class="modal-body">
+                <form name="addDeptForm">
+                    <div class="form-group">
+                        <label class="control-label">部门名称:</label>
+                        <input type="text"
+                               name="deptName"
+                               class="form-control"
+                               ng-model="newDept.name"
+                               required
+                               ng-class="{ error:(addDeptForm.deptName.$invalid && addDeptForm.deptName.$touched) || newDept.error }"
+                               ng-blur="checkDeptName()"
+                               placeholder="部门名称">
+                    </div>
+                    <p class="error" ng-if="addDeptForm.deptName.$error.required && addDeptForm.deptName.$touched">
+                        请输入部门名称
+                    </p>
+                    <p class="error" ng-if="newDept.error">
+                        {{newDept.msg}}
+                    </p>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" ng-click="addDept()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
