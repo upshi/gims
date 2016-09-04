@@ -12,13 +12,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
                     templateUrl: 'assets/templates/admin/index.html'
                 },
                 'nav@index': {
-                    templateUrl: 'assets/templates/admin/common/nav.html'
+                    templateUrl: 'assets/templates/common/nav.html'
                 },
                 'main@index': {
-                    templateUrl: 'assets/templates/admin/common/main.html'
+                    templateUrl: 'assets/templates/admin/main.html'
                 },
                 'footer@index': {
-                    templateUrl: 'assets/templates/admin/common/footer.html'
+                    templateUrl: 'assets/templates/common/footer.html'
                 }
             }
         })
@@ -26,7 +26,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/dept',
             views: {
                 'main@index': {
-                    templateUrl: 'assets/templates/admin/common/main.html'
+                    templateUrl: 'assets/templates/admin/main.html'
                 }
             }
         })
