@@ -1,0 +1,51 @@
+<div class="panel panel-success">
+    <div class="panel-heading">学院管理</div>
+    <div class="panel-body" ng-init="init()">
+        <ol class="breadcrumb">
+            <li><a ui-sref="index.dept.dept">部门管理</a></li>
+            <li class="active">{{deptName}}</li>
+        </ol>
+
+        <div class="row operation">
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal">添加办公室</button>
+        </div>
+
+        <label class="deptLabel" ng-repeat="o in offices">{{ o.office }}</label>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">添加办公室</h4>
+            </div>
+            <div class="modal-body">
+                <form name="addOfficeForm">
+                    <div class="form-group">
+                        <label class="control-label">办公室名称:</label>
+                        <input type="text"
+                               name="officeName"
+                               class="form-control"
+                               ng-model="newOffice.name"
+                               required
+                               ng-class="{ error:(addOfficeForm.officeName.$invalid && addOfficeForm.officeName.$touched) || newOffice.error }"
+                               ng-blur="checkOfficeName()"
+                               placeholder="办公室名称">
+                    </div>
+                    <p class="error" ng-if="addOfficeForm.officeName.$error.required && addOfficeForm.officeName.$touched">
+                        请输入办公室名称
+                    </p>
+                    <p class="error" ng-if="newOffice.error">
+                        {{newOffice.msg}}
+                    </p>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" ng-click="addOffice()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>

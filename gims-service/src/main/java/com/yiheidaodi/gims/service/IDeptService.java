@@ -17,4 +17,8 @@ public interface IDeptService {
 
     List<Dept> collegeList();
 
+    List<Dept> deptList();
+
+    List<Dept> officeList(String deptName);
+
 }

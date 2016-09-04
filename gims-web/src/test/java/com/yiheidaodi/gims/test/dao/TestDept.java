@@ -4,7 +4,6 @@ import com.yiheidaodi.gims.model.Dept;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.test.context.ContextConfiguration;
@@ -31,8 +30,8 @@ public class TestDept {
 
     @Test
     public void addCollege() {
-        Dept dept = new Dept(null, "计算机与通信学院", "院办", 0);
-        // mongoOps.insert(dept);
+        Dept dept = new Dept(null, "教务处", "办公室1", 0);
+        mongoOps.insert(dept);
     }
 
     @Test
@@ -42,7 +41,15 @@ public class TestDept {
 
     @Test
     public void collegeList() {
-        List<Dept> list = mongoOps.find(new Query(where("isCollege").is(1)).with(new Sort(Sort.Direction.ASC, "name")), Dept.class);
+        List<Dept> list = mongoOps.find(new Query(where("isCollege").is(1)), Dept.class);
+        for(Dept d : list) {
+            System.out.println(d);
+        }
+    }
+
+    @Test
+    public void deptList() {
+        List<Dept> list = mongoOps.find(new Query(where("isCollege").is(0).and("office").is("")), Dept.class);
         for(Dept d : list) {
             System.out.println(d);
         }

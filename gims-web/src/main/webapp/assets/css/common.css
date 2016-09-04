@@ -16,6 +16,10 @@ body {
     margin: 0px auto;
 }
 
+.navbar-default {
+    background-color: white;
+}
+
 #left {
     margin-left: 0px;
     margin-right: 15px;
