@@ -28,10 +28,13 @@ $('#drop').sortable({
 
 function addClassHandle() {
     $("#drop li:last-child").click(function () {
+        $('img').remove();
         var currentLi = this;
         $(this).focus();
         $(this).siblings('li').removeClass('elementClick'); // 删除其他兄弟元素的样式
         $(this).addClass('elementClick'); // 添加当前元素的样式
+        $(this).append('<img onclick="addEle()" src="assets/images/add.png" alt="复制" data-toggle="tooltip" data-placement="bottom" title="复制" style="position:absolute;bottom:-10px;right:40px;">');
+        $(this).append('<img onclick="delEle()" src="assets/images/subtract.png" alt="删除" data-toggle="tooltip" data-placement="bottom" title="删除" style="position:absolute;bottom:-10px;right:10px;">');
 
         /*获取当前点击元素的tag值*/
         var tag = $(this).attr('tag');
@@ -84,8 +87,8 @@ function addClassHandle() {
             ele[$(this).attr('name')] = $(this).val();
             sessionStorage.setItem(uuid, JSON.stringify(ele));
 
+            /* 宽度：2-整行；1-整行的1/2，0-整行的1/3 */
             if ($(this).attr('name') == 'width') {
-                /* 2-整行；1-整行的1/2，0-整行的1/3 */
                 $(currentLi).find('input').removeClass();
                 if (ele.width == 2) {
                     $(currentLi).find('input').addClass('longElement');
@@ -95,8 +98,9 @@ function addClassHandle() {
                     $(currentLi).find('input').addClass('shortElement');
                 }
             }
+
+            /* 内宽：2-长；1-中，0-短 */
             if ($(this).attr('name') == 'innerWidth') {
-                /* 2-长；1-中，0-短 */
                 $(currentLi).find('input').removeClass();
                 $(currentLi).find('select').removeClass();
                 if (ele.innerWidth == 2) {
@@ -111,8 +115,8 @@ function addClassHandle() {
                 }
             }
 
+            /* 布局：0-自由，1-1列，2-2列，3-3列 */
             if ($(this).attr('name') == 'layout') {
-                /* 0-自由，1-1列，2-2列，3-3列 */
                 if (ele.layout == 2) {
                     $($(currentLi)[0]).removeAttr("style");
                     $($(currentLi).find('span')[0]).removeAttr("style");
@@ -143,7 +147,24 @@ function addClassHandle() {
                     $($(currentLi).find('span')[2]).removeAttr("style");
                 }
             }
-
+            /* 多级下拉框的层级：2-2级，3-3级，4-4级 */
+            if ($(this).attr('name') == 'tire') {
+                if(ele.tire == 3) {
+                    $($(currentLi)[0]).children('select').eq(1).nextAll().remove();
+                    $('.pullDown').css({"width":"270px"});
+                    $($(currentLi)[0]).append('<select class="pullDown" disabled></select>');
+                    $('.pullDown').css({"width":"183px"});
+                } else if(ele.tire == 4) {
+                    $($(currentLi)[0]).children('select').eq(1).nextAll().remove();
+                    $('.pullDown').css({"width":"270px"});
+                    $($(currentLi)[0]).append('<select class="pullDown" disabled></select>');
+                    $($(currentLi)[0]).append('<select class="pullDown" disabled></select>');
+                    $('.pullDown').css({"width":"137px"});
+                } else {
+                    $($(currentLi)[0]).children('select').eq(1).nextAll().remove();
+                    $('.pullDown').css({"width":"270px"});
+                }
+            }
         });
         /* 把右边区域的值更新为当前ele里的值 */
         $.each($('.elementSelect'), function (i, n) {
@@ -164,4 +185,9 @@ function addClassHandle() {
         $(this).addClass('elementHover'); // 添加当前元素的样式
     });
 }
-
+function addEle() {
+    console.log()
+}
+function delEle() {
+    console.log()
+}

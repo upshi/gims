@@ -25,12 +25,13 @@ var attributes =
         "<div class='form-group'><label class='control-label'>最小长度<span>&nbsp;(?)</span></label><input class='form-control elementText' type='text' name='minLength'></div>",
         "<div class='form-group'><label class='control-label'>最大长度<span>&nbsp;(?)</span></label><input class='form-control elementText' type='text' name='maxLength'></div>",
         "<div class='form-group'><label class='control-label'>默认值<span>&nbsp;(?)</span></label><input class='form-control elementText' type='text' name='defaultValue'></div>",
-        "<div class='form-group'><label class='control-label'>多行文本的行数<span>&nbsp;(?)</span></label><select class='form-control elementSelect' name='rows'><option value='3'>3</option><option value='5'>5</option><option value='10'>10</option><option value='15'>15</option><option value='20'>20</option></select></div>",
-        "<div class='form-group'><label class='control-label'>宽度<span>&nbsp;(?)</span></label><select class='form-control elementSelect' name='width'><option value='2'>充满整行</option><option value='1'>整行的1/2</option><option value='0'>整行的1/3</option></select></div>",
+        "<div class='form-group'><label class='control-label'>多行文本的行数<span>&nbsp;(?)</span></label><select class='form-control elementSelect' name='rows'><option value='3' selected>3</option><option value='5'>5</option><option value='10'>10</option><option value='15'>15</option><option value='20'>20</option></select></div>",
+        "<div class='form-group'><label class='control-label'>宽度<span>&nbsp;(?)</span></label><select class='form-control elementSelect' name='width'><option value='2' selected>充满整行</option><option value='1'>整行的1/2</option><option value='0'>整行的1/3</option></select></div>",
         "<div class='form-group'><label class='control-label'>内宽<span>&nbsp;(?)</span></label><select class='form-control elementSelect' name='innerWidth'><option value='0'>短</option><option value='1'>中</option><option value='2' selected>长</option></select></div>",
-        "<div class='form-group'><label class='control-label'>分隔符<span>&nbsp;(?)</span></label><select class='form-control elementSelect' name='telDelimiter'><option value=''>无</option><option value='-'>-</option><option value='()'>()</option></select></div>",
-        "<div class='form-group'><label class='control-label'>分隔符<span>&nbsp;(?)</span></label><select class='form-control elementSelect' name='dateDelimiter'><option value=''>无</option><option value='-'>-</option><option value='/'>/</option></select></div>",
-        "<div class='form-group'><label class='control-label'>布局<span>&nbsp;(?)</span></label><select class='form-control elementSelect' name='layout'><option value='1'>一列</option><option value='2'>两列</option><option value='3'>三列</option><option value='0'>自由</option></select></div>"
+        "<div class='form-group'><label class='control-label'>分隔符<span>&nbsp;(?)</span></label><select class='form-control elementSelect' name='telDelimiter'><option value='' selected>无</option><option value='-'>-</option><option value='()'>()</option></select></div>",
+        "<div class='form-group'><label class='control-label'>分隔符<span>&nbsp;(?)</span></label><select class='form-control elementSelect' name='dateDelimiter'><option value='' selected>无</option><option value='-'>-</option><option value='/'>/</option></select></div>",
+        "<div class='form-group'><label class='control-label'>布局<span>&nbsp;(?)</span></label><select class='form-control elementSelect' name='layout'><option value='1'>一列</option><option value='2'>两列</option><option value='3'>三列</option><option value='0'>自由</option></select></div>",
+        "<div class='form-group'><label class='control-label'>层级<span>&nbsp;(?)</span></label><select class='form-control elementSelect' name='tire'><option value='2' selected>两级</option><option value='3'>三级</option><option value='4'>四级</option></select></div>"
     ]
 var mapper = [
     [],//0
@@ -48,5 +49,5 @@ var mapper = [
     [11],//12
     [11],//13
     [8],//14
-    []//15
+    [12]//15
 ]
