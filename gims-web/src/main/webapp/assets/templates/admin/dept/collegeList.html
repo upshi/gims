@@ -1,0 +1,45 @@
+<div class="panel panel-success">
+    <div class="panel-heading">学院管理</div>
+    <div class="panel-body" ng-init="init()">
+        <div class="row operation">
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal">添加学院</button>
+        </div>
+        <label class="deptLabel" ng-repeat="c in colleges"><a ui-sref="index.dept.office({deptName:c.name,isCollege:1})">{{ c.name  }}</a></label>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">添加学院</h4>
+            </div>
+            <div class="modal-body">
+                <form name="addCollegeForm">
+                    <div class="form-group">
+                        <label class="control-label">学院名称:</label>
+                        <input type="text"
+                               name="collegeName"
+                               class="form-control"
+                               ng-model="newCollege.name"
+                               required
+                               ng-class="{ error:(addCollegeForm.collegeName.$invalid && addCollegeForm.collegeName.$touched) || newCollege.error }"
+                               ng-blur="checkCollegeName()"
+                               placeholder="学院名称">
+                    </div>
+                    <p class="error" ng-if="addCollegeForm.collegeName.$error.required && addCollegeForm.collegeName.$touched">
+                        请输入学院名称
+                    </p>
+                    <p class="error" ng-if="newCollege.error">
+                        {{newCollege.msg}}
+                    </p>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" ng-disabled="newCollege.error || addCollegeForm.collegeName.$error.required" ng-click="addCollege()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>

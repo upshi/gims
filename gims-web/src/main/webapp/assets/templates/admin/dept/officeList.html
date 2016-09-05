@@ -1,8 +1,9 @@
 <div class="panel panel-success">
-    <div class="panel-heading">学院管理</div>
+    <div class="panel-heading">{{ head }}</div>
     <div class="panel-body" ng-init="init()">
         <ol class="breadcrumb">
-            <li><a ui-sref="index.dept.dept">部门管理</a></li>
+            <li ng-if="head === '学院管理'"><a ui-sref="index.dept.college">{{ head }}</a></li>
+            <li ng-if="head === '部门管理'"><a ui-sref="index.dept.dept">{{ head }}</a></li>
             <li class="active">{{deptName}}</li>
         </ol>
 
@@ -44,7 +45,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary" ng-click="addOffice()">确定</button>
+                <button type="button" class="btn btn-primary" ng-disabled="newOffice.error || addOfficeForm.officeName.$error.required" ng-click="addOffice()">确定</button>
             </div>
         </div>
     </div>

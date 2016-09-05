@@ -1,0 +1,31 @@
+<div class="panel panel-success">
+    <div class="panel-heading">用户管理</div>
+    <div class="panel-body" ng-init="init()">
+        <div class="row operation">
+            <a ui-sref="index.dept.addUser" class="btn btn-default">添加用户</a>
+        </div>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>用户名</th>
+                    <th>姓名</th>
+                    <th>手机</th>
+                    <th>邮箱</th>
+                    <th>部门</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="u in users">
+                    <td>{{ u.userName }}</td>
+                    <td>{{ u.name }}</td>
+                    <td>{{ u.tel }}</td>
+                    <td>{{ u.email }}</td>
+                    <td>{{ u.dept.name }} - {{ u.dept.office }}</td>
+                    <td>操作</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

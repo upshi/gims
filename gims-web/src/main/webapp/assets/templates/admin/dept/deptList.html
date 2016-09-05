@@ -4,7 +4,7 @@
         <div class="row operation">
             <button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal">添加部门</button>
         </div>
-        <label class="deptLabel" ng-repeat="d in depts"><a ui-sref="index.dept.office({deptName:d.name})">{{ d.name  }}</a></label>
+        <label class="deptLabel" ng-repeat="d in depts"><a ui-sref="index.dept.office({deptName:d.name,isCollege:0})">{{ d.name  }}</a></label>
     </div>
 </div>
 
@@ -38,7 +38,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary" ng-click="addDept()">确定</button>
+                <button type="button" class="btn btn-primary" ng-disabled="newDept.error || addDeptForm.deptName.$error.required" ng-click="addDept()">确定</button>
             </div>
         </div>
     </div>
