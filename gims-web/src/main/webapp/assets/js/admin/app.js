@@ -32,7 +32,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         })
         .state('index.dept.college', {
             url: '/college',
-            templateUrl: 'assets/templates/admin/college/collegeList.html',
+            templateUrl: 'assets/templates/admin/dept/collegeList.html',
             controller: 'collegeListController'
         })
         .state('index.dept.dept', {
@@ -41,8 +41,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'deptListController'
         })
         .state('index.dept.office', {
-            url: '/office/:deptName',
+            url: '/office/:deptName/:isCollege',
             templateUrl: 'assets/templates/admin/dept/officeList.html',
             controller: 'officeListController'
+        })
+        .state('index.dept.user', {
+            url: '/user',
+            templateUrl: 'assets/templates/admin/dept/userList.html',
+            controller: 'userListController'
+        })
+        .state('index.dept.addUser', {
+            url: '/addUser',
+            templateUrl: 'assets/templates/admin/dept/addUser.html',
+            controller: 'addUserController'
         })
 });

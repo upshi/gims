@@ -1,5 +1,9 @@
 package com.yiheidaodi.gims.service;
 
+import com.yiheidaodi.gims.model.User;
+
+import java.util.List;
+
 /**
  * gims com.yiheidaodi.gims.service
  * 描述：
@@ -9,4 +13,5 @@ package com.yiheidaodi.gims.service;
 
 public interface IUserService {
 
+    List<User> userList();
 }

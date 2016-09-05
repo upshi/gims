@@ -8,6 +8,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import com.yiheidaodi.gims.model.Address;
+import com.yiheidaodi.gims.model.Dept;
 import org.bson.Document;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -70,6 +71,28 @@ public class TestMongo {
         System.out.println();
         System.out.println(one);
         System.out.println();
+    }
+
+
+    @Test
+    public void getAllUsers() {
+        MongoCollection<Document> userCollection = mongoClient.getDatabase("gims").getCollection("user");
+        MongoCursor<Document> iterator = userCollection.find().iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+
+    }
+
+    @Test
+    public void insertUser() {
+        MongoCollection<Document> userCollection = mongoClient.getDatabase("gims").getCollection("user");
+        Dept d = mongoOps.findOne(new Query(where("isCollege").is(0).and("name").is("计算机与通信学院").and("office").is("院办")), Dept.class);
+        System.out.println("-----------------------------------");
+        System.out.println(d);
+        /*User user = new User(null, "jbz", "123456", "金保召", "15214074620", "jbzsdw@163.com", d, User.ROLE_COLLEGE);
+        Document doc = Document.parse(JSON.toJSONString(user, SerializerFeature.WriteMapNullValue));
+        userCollection.insertOne(doc);*/
     }
 
 }

@@ -1,6 +1,7 @@
 package com.yiheidaodi.gims.test.dao;
 
 import com.yiheidaodi.gims.model.Dept;
+import com.yiheidaodi.gims.model.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,5 +55,20 @@ public class TestDept {
             System.out.println(d);
         }
     }
+
+    @Test
+    public void addUser() {
+        Dept d = mongoOps.findOne(new Query(where("isCollege").is(1).and("name").is("计算机与通信学院").and("office").is("院办")), Dept.class);
+        User user = new User(null, "zpp", "123456", "宗培培", "18652014930", "wqdwq@163.com", d, User.ROLE_COLLEGE);
+        mongoOps.insert(user);
+    }
+
+    @Test
+    public void userList() {
+        List<User> list = mongoOps.findAll(User.class);
+        System.out.println(list.size());
+    }
+
+
 
 }

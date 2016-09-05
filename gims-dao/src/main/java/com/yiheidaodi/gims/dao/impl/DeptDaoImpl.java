@@ -32,7 +32,7 @@ public class DeptDaoImpl implements IDeptDao {
 
     @Override
     public List<Dept> getAllColleges() {
-        return mongoOps.find(new Query(where("isCollege").is(1)), Dept.class);
+        return mongoOps.find(new Query(where("isCollege").is(1).and("office").is("")), Dept.class);
     }
 
     @Override
@@ -42,6 +42,6 @@ public class DeptDaoImpl implements IDeptDao {
 
     @Override
     public List<Dept> getOfficesByDeptName(String deptName) {
-        return mongoOps.find(new Query(where("isCollege").is(0).and("name").is(deptName)), Dept.class);
+        return mongoOps.find(new Query(where("name").is(deptName)), Dept.class);
     }
 }

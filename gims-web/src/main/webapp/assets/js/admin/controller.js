@@ -108,6 +108,11 @@ adminController.controller('deptListController', ['$scope','$state', '$statePara
 
 adminController.controller('officeListController', ['$scope','$state', '$stateParams', '$filter', function ($scope, $state, $stateParams, $filter) {
     $scope.deptName = $stateParams.deptName;
+    if($stateParams.isCollege === '1') {
+        $scope.head = '学院管理';
+    } else {
+        $scope.head = '部门管理';
+    }
 
     $scope.init = function () {
         $.ajax({
@@ -154,7 +159,8 @@ adminController.controller('officeListController', ['$scope','$state', '$statePa
                 cache : false ,
                 data : {
                     name : $scope.deptName,
-                    office : $scope.newOffice.name
+                    office : $scope.newOffice.name,
+                    isCollege : $stateParams.isCollege
                 },
                 dataType : "json" ,
                 success : function(data) {
@@ -163,4 +169,24 @@ adminController.controller('officeListController', ['$scope','$state', '$statePa
             });
         }
     }
+}]);
+
+adminController.controller('userListController', ['$scope','$state', '$stateParams', function ($scope, $state, $stateParams) {
+    $scope.init = function () {
+        $.ajax({
+            url: "api/user/userList",
+            type: "post",
+            cache: false,
+            dataType: "json",
+            success: function (data) {
+                $scope.$apply(function(){
+                    $scope.users = data.users;
+                });
+            }
+        });
+    };
+}]);
+
+adminController.controller('addUserController', ['$scope', function ($scope) {
+
 }]);
