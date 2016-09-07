@@ -65,7 +65,7 @@ public class DeptController {
 
     @RequestMapping("/officeList")
     @ResponseBody
-    public Map<String, Object> officeManage(String deptName) {
+    public Map<String, Object> officeList(String deptName) {
         Map<String, Object> map = new HashMap<String, Object>();
         List<Dept> offices = deptService.officeList(deptName);
         map.put("offices", offices);

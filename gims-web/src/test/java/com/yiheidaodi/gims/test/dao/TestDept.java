@@ -2,7 +2,6 @@ package com.yiheidaodi.gims.test.dao;
 
 import com.yiheidaodi.gims.model.Dept;
 import com.yiheidaodi.gims.model.User;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -29,18 +28,18 @@ public class TestDept {
     @Autowired
     MongoOperations mongoOps;
 
-    @Test
+    // @Test
     public void addCollege() {
         Dept dept = new Dept(null, "教务处", "办公室1", 0);
         mongoOps.insert(dept);
     }
 
-    @Test
+    // @Test
     public void updateCollege() {
         // mongoOps.updateFirst(new Query(where("name").is("计算与通信学院")), new Update().set("name", "计算机与通信学院"), Dept.class);
     }
 
-    @Test
+    // @Test
     public void collegeList() {
         List<Dept> list = mongoOps.find(new Query(where("isCollege").is(1)), Dept.class);
         for(Dept d : list) {
@@ -48,7 +47,7 @@ public class TestDept {
         }
     }
 
-    @Test
+    // @Test
     public void deptList() {
         List<Dept> list = mongoOps.find(new Query(where("isCollege").is(0).and("office").is("")), Dept.class);
         for(Dept d : list) {
@@ -56,14 +55,14 @@ public class TestDept {
         }
     }
 
-    @Test
+    // @Test
     public void addUser() {
         Dept d = mongoOps.findOne(new Query(where("isCollege").is(1).and("name").is("计算机与通信学院").and("office").is("院办")), Dept.class);
         User user = new User(null, "zpp", "123456", "宗培培", "18652014930", "wqdwq@163.com", d, User.ROLE_COLLEGE);
         mongoOps.insert(user);
     }
 
-    @Test
+    // @Test
     public void userList() {
         List<User> list = mongoOps.findAll(User.class);
         System.out.println(list.size());

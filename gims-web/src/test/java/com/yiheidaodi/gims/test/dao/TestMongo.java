@@ -10,7 +10,6 @@ import com.mongodb.client.MongoDatabase;
 import com.yiheidaodi.gims.model.Address;
 import com.yiheidaodi.gims.model.Dept;
 import org.bson.Document;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -38,7 +37,7 @@ public class TestMongo {
     @Autowired
     MongoOperations mongoOps;
 
-    @Test
+    // @Test
     public void testMongoJavaAPI() {
         MongoDatabase gims = mongoClient.getDatabase("gims");
         MongoCollection<Document> sheet2016 = gims.getCollection("sheet2016");
@@ -60,7 +59,7 @@ public class TestMongo {
 
     }
 
-    @Test
+    // @Test
     public void testSpringDataMongo() {
         Address addr = new Address("江苏", "徐州", "沛县", "王店村", "216300");
         Person person = new Person(null, "王文静", 12, addr);
@@ -74,7 +73,7 @@ public class TestMongo {
     }
 
 
-    @Test
+    // @Test
     public void getAllUsers() {
         MongoCollection<Document> userCollection = mongoClient.getDatabase("gims").getCollection("user");
         MongoCursor<Document> iterator = userCollection.find().iterator();
@@ -84,7 +83,7 @@ public class TestMongo {
 
     }
 
-    @Test
+    // @Test
     public void insertUser() {
         MongoCollection<Document> userCollection = mongoClient.getDatabase("gims").getCollection("user");
         Dept d = mongoOps.findOne(new Query(where("isCollege").is(0).and("name").is("计算机与通信学院").and("office").is("院办")), Dept.class);
