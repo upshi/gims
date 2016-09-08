@@ -1,17 +1,18 @@
 var adminController = angular.module('adminController', []);
 
-adminController.controller('collegeListController', ['$scope','$state', '$stateParams', function ($scope) {
+/*
+* 学院部门管理
+*/
+
+/* 学院管理 */
+adminController.controller('collegeListController', ['$scope', '$http', '$httpParamSerializerJQLike', function ($scope, $http, $httpParamSerializerJQLike) {
     $scope.init = function () {
-        $.ajax({
-            url: "api/dept/collegeList",
-            type: "post",
-            cache: false,
-            dataType: "json",
-            success: function (data) {
-                $scope.$apply(function(){
-                    $scope.colleges = data.colleges;
-                });
-            }
+        $http({
+            method : 'POST',
+            url : 'api/dept/collegeList',
+            cache : false
+        }).success(function(data){
+            $scope.colleges = data.colleges;
         });
     };
 
@@ -39,32 +40,30 @@ adminController.controller('collegeListController', ['$scope','$state', '$stateP
 
     $scope.addCollege = function() {
         if(!$scope.newCollege.error) {
-            $.ajax({
-                url : "api/dept/addCollege",
-                type : "post" ,
-                cache : false ,
-                data : {name : $scope.newCollege.name },
-                dataType : "json" ,
-                success : function(data) {
-                    location.reload();
-                }
+            $http({
+                method : 'POST',
+                url : 'api/dept/addCollege',
+                data : $httpParamSerializerJQLike({name : $scope.newCollege.name}),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                cache : false
+            }).success(function(){
+                location.reload();
             });
         }
     }
 }]);
 
-adminController.controller('deptListController', ['$scope','$state', '$stateParams', function ($scope, $state, $stateParams) {
+/* 部门管理 */
+adminController.controller('deptListController', ['$scope', '$http', '$httpParamSerializerJQLike', function ($scope, $http, $httpParamSerializerJQLike) {
     $scope.init = function () {
-        $.ajax({
-            url: "api/dept/deptList",
-            type: "post",
-            cache: false,
-            dataType: "json",
-            success: function (data) {
-                $scope.$apply(function(){
-                    $scope.depts = data.depts;
-                });
-            }
+        $http({
+            method : 'POST',
+            url : 'api/dept/deptList',
+            cache : false
+        }).success(function(data){
+            $scope.depts = data.depts;
         });
     };
 
@@ -92,21 +91,24 @@ adminController.controller('deptListController', ['$scope','$state', '$statePara
 
     $scope.addDept = function() {
         if(!$scope.newDept.error) {
-            $.ajax({
-                url : "api/dept/addDept",
-                type : "post" ,
-                cache : false ,
-                data : {name : $scope.newDept.name },
-                dataType : "json" ,
-                success : function(data) {
-                    location.reload();
-                }
+            $http({
+                method : 'POST',
+                url : 'api/dept/addDept',
+                data : $httpParamSerializerJQLike({name : $scope.newDept.name}),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                cache : false
+            }).success(function(){
+                location.reload();
             });
         }
     }
 }]);
 
-adminController.controller('officeListController', ['$scope','$state', '$stateParams', '$filter', function ($scope, $state, $stateParams, $filter) {
+/* 办公室管理 */
+adminController.controller('officeListController', ['$scope','$http', '$httpParamSerializerJQLike', '$state', '$stateParams', '$filter',
+                                function ($scope, $http, $httpParamSerializerJQLike, $state, $stateParams, $filter) {
     $scope.deptName = $stateParams.deptName;
     if($stateParams.isCollege === '1') {
         $scope.head = '学院管理';
@@ -115,17 +117,16 @@ adminController.controller('officeListController', ['$scope','$state', '$statePa
     }
 
     $scope.init = function () {
-        $.ajax({
-            url: "api/dept/officeList",
-            type: "post",
-            cache: false,
-            data : {deptName : $scope.deptName},
-            dataType: "json",
-            success: function (data) {
-                $scope.$apply(function(){
-                    $scope.offices = $filter('filterDept')(data.offices);
-                });
-            }
+        $http({
+            method : 'POST',
+            url : 'api/dept/officeList',
+            data : $httpParamSerializerJQLike({deptName : $scope.deptName}),
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            cache : false
+        }).success(function(data){
+            $scope.offices = $filter('filterDept')(data.offices);
         });
     };
 
@@ -153,40 +154,54 @@ adminController.controller('officeListController', ['$scope','$state', '$statePa
 
     $scope.addOffice = function() {
         if(!$scope.newOffice.error) {
-            $.ajax({
-                url : "api/dept/addOffice",
-                type : "post" ,
-                cache : false ,
-                data : {
-                    name : $scope.deptName,
-                    office : $scope.newOffice.name,
-                    isCollege : $stateParams.isCollege
+            var dept = {
+                name : $scope.deptName,
+                office : $scope.newOffice.name,
+                isCollege : $stateParams.isCollege
+            };
+            $http({
+                method : 'POST',
+                url : 'api/dept/addOffice',
+                data : $httpParamSerializerJQLike(dept),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
                 },
-                dataType : "json" ,
-                success : function(data) {
-                    location.reload();
-                }
+                cache : false
+            }).success(function(){
+                location.reload();
             });
         }
     }
 }]);
 
-adminController.controller('userListController', ['$scope','$state', '$stateParams', function ($scope, $state, $stateParams) {
+/* 用户列表 */
+adminController.controller('userListController', ['$scope', '$http', '$httpParamSerializerJQLike', function ($scope, $http, $httpParamSerializerJQLike) {
     $scope.init = function () {
-        $.ajax({
-            url: "api/user/userList",
-            type: "post",
-            cache: false,
-            dataType: "json",
-            success: function (data) {
-                $scope.$apply(function(){
-                    $scope.users = data.users;
-                });
-            }
+        $http({
+            method : 'POST',
+            url : 'api/user/userList',
+            cache : false
+        }).success(function(data){
+            $scope.users = data.users;
         });
     };
 }]);
 
+/* 添加用户 */
 adminController.controller('addUserController', ['$scope', function ($scope) {
+
+}]);
+
+
+/*
+ * 设置
+ */
+/* 个人信息 */
+adminController.controller('personalInfoController', ['$scope', function ($scope) {
+
+}]);
+
+/* 修改密码 */
+adminController.controller('updatePasswordController', ['$scope', function ($scope) {
 
 }]);

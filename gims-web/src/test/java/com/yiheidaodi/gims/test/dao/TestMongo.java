@@ -38,7 +38,7 @@ public class TestMongo {
     @Autowired
     MongoOperations mongoOps;
 
-    @Test
+    // @Test
     public void testMongoJavaAPI() {
         MongoDatabase gims = mongoClient.getDatabase("gims");
         MongoCollection<Document> sheet2016 = gims.getCollection("sheet2016");
@@ -60,7 +60,7 @@ public class TestMongo {
 
     }
 
-    @Test
+    // @Test
     public void testSpringDataMongo() {
         Address addr = new Address("江苏", "徐州", "沛县", "王店村", "216300");
         Person person = new Person(null, "王文静", 12, addr);
@@ -74,7 +74,7 @@ public class TestMongo {
     }
 
 
-    @Test
+    // @Test
     public void getAllUsers() {
         MongoCollection<Document> userCollection = mongoClient.getDatabase("gims").getCollection("user");
         MongoCursor<Document> iterator = userCollection.find().iterator();
@@ -84,7 +84,7 @@ public class TestMongo {
 
     }
 
-    @Test
+    // @Test
     public void insertUser() {
         MongoCollection<Document> userCollection = mongoClient.getDatabase("gims").getCollection("user");
         Dept d = mongoOps.findOne(new Query(where("isCollege").is(0).and("name").is("计算机与通信学院").and("office").is("院办")), Dept.class);
@@ -93,6 +93,11 @@ public class TestMongo {
         /*User user = new User(null, "jbz", "123456", "金保召", "15214074620", "jbzsdw@163.com", d, User.ROLE_COLLEGE);
         Document doc = Document.parse(JSON.toJSONString(user, SerializerFeature.WriteMapNullValue));
         userCollection.insertOne(doc);*/
+    }
+
+    @Test
+    public void empty() {
+        System.out.println("-------------- TEST ---------------");
     }
 
 }

@@ -55,4 +55,22 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'assets/templates/admin/dept/addUser.html',
             controller: 'addUserController'
         })
+        .state('index.settings', {
+            url: '/settings',
+            views: {
+                'main@index': {
+                    templateUrl: 'assets/templates/admin/main.html'
+                }
+            }
+        })
+        .state('index.settings.personalInfo', {
+            url: '/personalInfo',
+            templateUrl: 'assets/templates/admin/settings/personalInfo.html',
+            controller: 'personalInfoController'
+        })
+        .state('index.settings.updatePassword', {
+            url: '/updatePassword',
+            templateUrl: 'assets/templates/admin/settings/updatePassword.html',
+            controller: 'updatePasswordController'
+        })
 });
