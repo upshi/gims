@@ -14,4 +14,6 @@ import java.util.List;
 public interface IUserService {
 
     List<User> userList();
+
+    User userLogin(User user);
 }

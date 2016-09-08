@@ -4,9 +4,14 @@ import com.yiheidaodi.gims.dao.IUserDao;
 import com.yiheidaodi.gims.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
+import static org.springframework.data.mongodb.core.query.Criteria.where;
+
 
 /**
  * gims com.yiheidaodi.gims.dao.impl
@@ -21,8 +26,23 @@ public class UserDaoImpl implements IUserDao {
     @Autowired
     MongoOperations mongoOps;
 
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
     @Override
     public List<User> getAllUsers() {
         return mongoOps.findAll(User.class);
+    }
+
+    @Override
+    public User getUserByUserNameAndPassword(String userName, String password) {
+        User user = mongoOps.findOne(new Query(where("userName").is(userName)), User.class);
+        if(user != null) {
+            if(passwordEncoder.matches(password, user.getPassword())) {
+                return user;
+            }
+        }
+
+        return null;
     }
 }
