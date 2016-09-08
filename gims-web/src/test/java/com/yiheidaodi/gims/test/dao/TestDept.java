@@ -2,6 +2,7 @@ package com.yiheidaodi.gims.test.dao;
 
 import com.yiheidaodi.gims.model.Dept;
 import com.yiheidaodi.gims.model.User;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -66,6 +67,13 @@ public class TestDept {
     public void userList() {
         List<User> list = mongoOps.findAll(User.class);
         System.out.println(list.size());
+    }
+
+
+
+    @Test
+    public void empty() {
+        System.out.println("-------------- TEST ---------------");
     }
 
 

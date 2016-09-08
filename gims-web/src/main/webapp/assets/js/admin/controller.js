@@ -1,5 +1,10 @@
 var adminController = angular.module('adminController', []);
 
+/*
+* 学院部门管理
+*/
+
+/* 学院管理 */
 adminController.controller('collegeListController', ['$scope', '$http', '$httpParamSerializerJQLike', function ($scope, $http, $httpParamSerializerJQLike) {
     $scope.init = function () {
         $http({
@@ -50,6 +55,7 @@ adminController.controller('collegeListController', ['$scope', '$http', '$httpPa
     }
 }]);
 
+/* 部门管理 */
 adminController.controller('deptListController', ['$scope', '$http', '$httpParamSerializerJQLike', function ($scope, $http, $httpParamSerializerJQLike) {
     $scope.init = function () {
         $http({
@@ -100,6 +106,7 @@ adminController.controller('deptListController', ['$scope', '$http', '$httpParam
     }
 }]);
 
+/* 办公室管理 */
 adminController.controller('officeListController', ['$scope','$http', '$httpParamSerializerJQLike', '$state', '$stateParams', '$filter',
                                 function ($scope, $http, $httpParamSerializerJQLike, $state, $stateParams, $filter) {
     $scope.deptName = $stateParams.deptName;
@@ -167,6 +174,7 @@ adminController.controller('officeListController', ['$scope','$http', '$httpPara
     }
 }]);
 
+/* 用户列表 */
 adminController.controller('userListController', ['$scope', '$http', '$httpParamSerializerJQLike', function ($scope, $http, $httpParamSerializerJQLike) {
     $scope.init = function () {
         $http({
@@ -179,6 +187,21 @@ adminController.controller('userListController', ['$scope', '$http', '$httpParam
     };
 }]);
 
+/* 添加用户 */
 adminController.controller('addUserController', ['$scope', function ($scope) {
+
+}]);
+
+
+/*
+ * 设置
+ */
+/* 个人信息 */
+adminController.controller('personalInfoController', ['$scope', function ($scope) {
+
+}]);
+
+/* 修改密码 */
+adminController.controller('updatePasswordController', ['$scope', function ($scope) {
 
 }]);

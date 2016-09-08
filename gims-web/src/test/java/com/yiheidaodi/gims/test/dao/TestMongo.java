@@ -10,6 +10,7 @@ import com.mongodb.client.MongoDatabase;
 import com.yiheidaodi.gims.model.Address;
 import com.yiheidaodi.gims.model.Dept;
 import org.bson.Document;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -92,6 +93,11 @@ public class TestMongo {
         /*User user = new User(null, "jbz", "123456", "金保召", "15214074620", "jbzsdw@163.com", d, User.ROLE_COLLEGE);
         Document doc = Document.parse(JSON.toJSONString(user, SerializerFeature.WriteMapNullValue));
         userCollection.insertOne(doc);*/
+    }
+
+    @Test
+    public void empty() {
+        System.out.println("-------------- TEST ---------------");
     }
 
 }
