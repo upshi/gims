@@ -34,4 +34,13 @@ public class UserController {
         return map;
     }
 
+    @RequestMapping("/checkUserName")
+    @ResponseBody
+    public Map<String, Object> checkUserName(String userName) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        int exist = userService.checkUserName(userName);
+        map.put("exist", exist);
+        return map;
+    }
+
 }

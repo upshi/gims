@@ -36,7 +36,7 @@ public class UserDaoImpl implements IUserDao {
 
     @Override
     public User getUserByUserNameAndPassword(String userName, String password) {
-        User user = mongoOps.findOne(new Query(where("userName").is(userName)), User.class);
+        User user = getUserByUserName(userName);
         if(user != null) {
             if(passwordEncoder.matches(password, user.getPassword())) {
                 return user;
@@ -44,5 +44,10 @@ public class UserDaoImpl implements IUserDao {
         }
 
         return null;
+    }
+
+    @Override
+    public User getUserByUserName(String userName) {
+        return mongoOps.findOne(new Query(where("userName").is(userName)), User.class);
     }
 }

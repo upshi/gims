@@ -16,4 +16,6 @@ public interface IUserService {
     List<User> userList();
 
     User userLogin(User user);
+
+    int checkUserName(String userName);
 }

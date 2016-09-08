@@ -30,4 +30,10 @@ public class UserServiceImpl implements IUserService {
     public User userLogin(User user) {
         return userDao.getUserByUserNameAndPassword(user.getUserName(), user.getPassword());
     }
+
+    @Override
+    public int checkUserName(String userName) {
+        User user = userDao.getUserByUserName(userName);
+        return user == null? 0 : 1;
+    }
 }
