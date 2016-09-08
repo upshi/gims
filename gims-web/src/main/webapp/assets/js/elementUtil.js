@@ -11,12 +11,15 @@ function eleInit(tag, uuid) {
         description : ''
     }
 
-    //if(ele.tag == 0 || ele.tag == 3 || ele.tag == 5 || ele.tag == 6 || ele.tag == 7 || ele.tag == 9 || ele.tag == 11 || ele.tag == 15) {}
+    //if(ele.tag == 0 || ele.tag == 3 || ele.tag == 5 || ele.tag == 6 || ele.tag == 7 || ele.tag == 9 || ele.tag == 11) {}
     if(ele.tag == 8) {
         ele.telDelimiter = '';
     }
     if(ele.tag == 10) {
         ele.dateDelimiter = '';
+    }
+    if(ele.tag == 15) {
+        ele.tire = '';
     }
     if(ele.tag == 12 || ele.tag == 13) {
         ele.layout = '';
