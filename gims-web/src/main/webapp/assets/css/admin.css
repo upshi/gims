@@ -1,12 +1,12 @@
 .deptLabel {
-    width : 20%;
-    height : 30px;
-    margin : 10px 10px;
+    width: 20%;
+    height: 30px;
+    margin: 10px 10px;
 }
 
 .operation {
-    margin-left : 10px;
-    height : 50px;
+    margin-left: 10px;
+    height: 50px;
 }
 
 input.error {
@@ -19,3 +19,5 @@ p.error {
     color: #d10;
     font-size: 1.1em;
 }
+
+/* 用户管理样式 */
