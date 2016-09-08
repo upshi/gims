@@ -27,6 +27,17 @@
 	<mvc:resources location="/templates/" mapping="/templates/**" />
 	<mvc:resources location="/" mapping="/**/*.html" />
 	-->
+
+	<!-- 配置自定义的拦截器
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<mvc:exclude-mapping path="/verify/**" />
+			<bean class="com.yiheidaodi.gims.interceptor.VerifyInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	-->
+
 	<!-- 开始   配置支持返回JSON数据 -->
 	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter" p:ignoreDefaultModelOnRedirect="true">
 		<property name="messageConverters">

@@ -14,4 +14,8 @@ import java.util.List;
 public interface IUserDao {
 
     List<User> getAllUsers();
+
+    User getUserByUserNameAndPassword(String userName, String password);
+
+    User getUserByUserName(String userName);
 }

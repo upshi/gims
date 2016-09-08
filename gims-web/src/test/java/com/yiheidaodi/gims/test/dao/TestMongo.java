@@ -9,12 +9,14 @@ import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import com.yiheidaodi.gims.model.Address;
 import com.yiheidaodi.gims.model.Dept;
+import com.yiheidaodi.gims.model.User;
 import org.bson.Document;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -29,7 +31,7 @@ import static org.springframework.data.mongodb.core.query.Criteria.where;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:spring-mongo.xml" })
+@ContextConfiguration(locations = { "classpath:spring-mongo.xml", "classpath:spring.xml" })
 public class TestMongo {
 
     @Autowired
@@ -37,6 +39,9 @@ public class TestMongo {
 
     @Autowired
     MongoOperations mongoOps;
+
+    @Autowired
+    BCryptPasswordEncoder passwordEncoder;
 
     // @Test
     public void testMongoJavaAPI() {
@@ -87,17 +92,24 @@ public class TestMongo {
     // @Test
     public void insertUser() {
         MongoCollection<Document> userCollection = mongoClient.getDatabase("gims").getCollection("user");
-        Dept d = mongoOps.findOne(new Query(where("isCollege").is(0).and("name").is("计算机与通信学院").and("office").is("院办")), Dept.class);
+        Dept d = mongoOps.findOne(new Query(where("isCollege").is(1).and("name").is("计算机与通信学院").and("office").is("院办")), Dept.class);
         System.out.println("-----------------------------------");
         System.out.println(d);
-        /*User user = new User(null, "jbz", "123456", "金保召", "15214074620", "jbzsdw@163.com", d, User.ROLE_COLLEGE);
-        Document doc = Document.parse(JSON.toJSONString(user, SerializerFeature.WriteMapNullValue));
-        userCollection.insertOne(doc);*/
+        User user = new User(null, "zpp", passwordEncoder.encode("123456"), "宗培培", "18635102597", "412356536@163.com", d, User.ROLE_ADMIN);
+        // Document doc = Document.parse(JSON.toJSONString(user, SerializerFeature.WriteMapNullValue));
+        // userCollection.insertOne(doc);
+        mongoOps.insert(user);
     }
 
     @Test
     public void empty() {
         System.out.println("-------------- TEST ---------------");
+    }
+
+    // @Test
+    public void findUser() {
+        User user = mongoOps.findOne(new Query(where("userName").is("zpp").and("password").is("123456")), User.class);
+        System.out.println(user);
     }
 
 }

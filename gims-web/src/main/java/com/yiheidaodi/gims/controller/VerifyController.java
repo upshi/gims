@@ -7,39 +7,36 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
  * gims com.yiheidaodi.gims.controller
  * 描述：
  * 作者：王豫宁
- * 时间：2016-8-28 09:16.
+ * 时间：2016-9-8 18:38.
  */
 
 @Controller
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/verify")
+public class VerifyController {
 
     @Autowired
     private IUserService userService;
 
-    @RequestMapping("/userList")
+    @RequestMapping("/userLogin")
     @ResponseBody
-    public Map<String, Object> userList() {
+    public Map<String, Object> userLogin(User user, HttpSession session) {
         Map<String, Object> map = new HashMap<String, Object>();
-        List<User> users = userService.userList();
-        map.put("users", users);
-        return map;
-    }
-
-    @RequestMapping("/checkUserName")
-    @ResponseBody
-    public Map<String, Object> checkUserName(String userName) {
-        Map<String, Object> map = new HashMap<String, Object>();
-        int exist = userService.checkUserName(userName);
-        map.put("exist", exist);
+        User correctUser = userService.userLogin(user);
+        if(correctUser == null) {
+            map.put("correct", 0);
+        } else {
+            map.put("correct", 1);
+            map.put("role", correctUser.getRole());
+            session.setAttribute("user", user);
+        }
         return map;
     }
 
