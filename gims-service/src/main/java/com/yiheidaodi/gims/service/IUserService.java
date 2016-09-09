@@ -18,4 +18,8 @@ public interface IUserService {
     User userLogin(User user);
 
     int checkUserName(String userName);
+
+    void add(User user);
+
+    void updatePassword(String id, String password);
 }

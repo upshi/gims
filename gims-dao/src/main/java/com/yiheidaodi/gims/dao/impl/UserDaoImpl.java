@@ -5,6 +5,7 @@ import com.yiheidaodi.gims.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 
@@ -49,5 +50,16 @@ public class UserDaoImpl implements IUserDao {
     @Override
     public User getUserByUserName(String userName) {
         return mongoOps.findOne(new Query(where("userName").is(userName)), User.class);
+    }
+
+    @Override
+    public void add(User user) {
+        mongoOps.insert(user);
+    }
+
+    @Override
+    public void updatePassword(String userId, String password) {
+        String encoded = passwordEncoder.encode(password);
+        mongoOps.updateFirst(new Query(where("id").is(userId)), Update.update("password", encoded), User.class);
     }
 }

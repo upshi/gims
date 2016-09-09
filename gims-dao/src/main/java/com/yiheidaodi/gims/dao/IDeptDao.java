@@ -20,4 +20,8 @@ public interface IDeptDao {
     List<Dept> getAllDepts();
 
     List<Dept> getOfficesByDeptName(String deptName);
+
+    Dept findByNameAndOffice(String deptName, String office);
+
+    List<Dept> getAll();
 }
