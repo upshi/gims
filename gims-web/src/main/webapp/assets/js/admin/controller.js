@@ -188,9 +188,26 @@ adminController.controller('userListController', ['$scope', '$http', '$httpParam
 }]);
 
 /* 添加用户 */
-adminController.controller('addUserController', ['$scope', function ($scope) {
-    $scope.newUser = {
+adminController.controller('addUserController', ['$scope', '$http', '$httpParamSerializerJQLike', function ($scope, $http, $httpParamSerializerJQLike) {
+    $scope.init = function () {
+        $http({
+            method : 'POST',
+            url : 'api/dept/deptAndCollegeList',
+            cache : false
+        }).success(function(data){
+            $scope.depts = data.depts;
+        });
+    };
+
+    $scope.user = {
         userName : '',
+        password : '',
+        name : '',
+        tel : '',
+        email : '',
+    };
+
+    $scope.newUser = {
         error : false,
         msg : ''
     };
@@ -199,22 +216,27 @@ adminController.controller('addUserController', ['$scope', function ($scope) {
         $http({
             method : 'POST',
             url : 'api/user/checkUserName',
-            data : $httpParamSerializerJQLike(newUser.userName),
+            data : $httpParamSerializerJQLike({userName : $scope.user.userName}),
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             cache : false
-        }).success(function(){
-
+        }).success(function(data){
+            if(data.exist === 1) {
+                $scope.newUser.msg = '您输入的用户名已存在';
+                $scope.newUser.error = true;
+                return false;
+            } else {
+                $scope.newUser.error = false;
+            }
         });
     }
-
     $scope.addUser = function() {
         if(!$scope.newUser.error) {
             $http({
                 method : 'POST',
                 url : 'api/user/addUser',
-                data : $httpParamSerializerJQLike(),
+                data : $httpParamSerializerJQLike($scope.user),
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
