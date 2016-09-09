@@ -188,43 +188,29 @@ adminController.controller('userListController', ['$scope', '$http', '$httpParam
 }]);
 
 /* 添加用户 */
-adminController.controller('addUserController', ['$scope', function ($scope) {
-    $scope.newUser = {
-        userName : '',
-        error : false,
-        msg : ''
-    };
-
-    $scope.checkUserName = function () {
-        $http({
-            method : 'POST',
-            url : 'api/user/checkUserName',
-            data : $httpParamSerializerJQLike(newUser.userName),
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            cache : false
-        }).success(function(){
-
+adminFilter.filter('filterAllDept', function () {
+    return function(depts){
+        var arr = [];
+        angular.forEach(depts, function (dept) {
+            if(dept.office == '') {
+                arr.push(dept);
+            }
         });
+        return arr;
     }
+});
 
-    $scope.addUser = function() {
-        if(!$scope.newUser.error) {
-            $http({
-                method : 'POST',
-                url : 'api/user/addUser',
-                data : $httpParamSerializerJQLike(),
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                cache : false
-            }).success(function(){
-                location.reload();
-            });
-        }
+adminFilter.filter('filterOffice', function () {
+    return function(depts, deptName){
+        var arr = [];
+        angular.forEach(depts, function (dept) {
+            if(dept.name == deptName && dept.office !=='') {
+                arr.push(dept);
+            }
+        });
+        return arr;
     }
-}]);
+});
 
 
 /*
