@@ -9,7 +9,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: "/index",
             views: {
                 '': {
-                    templateUrl: 'assets/templates/admin/index.html'
+                    templateUrl: 'assets/templates/common/content.html'
                 },
                 'nav@index': {
                     templateUrl: 'assets/templates/common/nav.html'

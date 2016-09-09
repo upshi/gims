@@ -1,0 +1,45 @@
+<div class="panel panel-success">
+    <div class="panel-heading">班级管理</div>
+    <div class="panel-body" ng-init="init()">
+        <div class="row operation">
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal">添加班级</button>
+        </div>
+        <label class="listLabel" ng-repeat="c in clazzs">{{ c.clazz  }}</label>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">添加班级</h4>
+            </div>
+            <div class="modal-body">
+                <form name="form">
+                    <div class="form-group">
+                        <label class="control-label">班级名称:</label>
+                        <input type="text"
+                               name="clazzName"
+                               class="form-control"
+                               ng-model="newTeachClass.clazz"
+                               required
+                               ng-class="{ error:(form.clazzName.$invalid && form.clazzName.$touched) || newTeachClass.error }"
+                               ng-blur="checkClazzName()"
+                               placeholder="班级名称">
+                    </div>
+                    <p class="error" ng-if="form.clazzName.$error.required && form.clazzName.$touched">
+                        请输入班级名称
+                    </p>
+                    <p class="error" ng-if="newTeachClass.error">
+                        {{newTeachClass.msg}}
+                    </p>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" ng-disabled="newTeachClass.error || form.clazzName.$error.required" ng-click="addClazz()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>

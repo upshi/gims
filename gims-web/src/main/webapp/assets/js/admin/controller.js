@@ -126,7 +126,7 @@ adminController.controller('officeListController', ['$scope','$http', '$httpPara
             },
             cache : false
         }).success(function(data){
-            $scope.offices = $filter('filterDept')(data.offices);
+            $scope.offices = $filter('filterEmpty')(data.offices, 'office');
         });
     };
 

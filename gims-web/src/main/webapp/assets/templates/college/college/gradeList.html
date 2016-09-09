@@ -1,0 +1,45 @@
+<div class="panel panel-success">
+    <div class="panel-heading">年级管理</div>
+    <div class="panel-body" ng-init="init()">
+        <div class="row operation">
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal">添加年级</button>
+        </div>
+        <label class="listLabel" ng-repeat="g in grades"><a ui-sref="index.college.major({grade:g.grade})">{{ g.grade  }}</a></label>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">添加年级</h4>
+            </div>
+            <div class="modal-body">
+                <form name="addGradeForm">
+                    <div class="form-group">
+                        <label class="control-label">年级名称:</label>
+                        <input type="text"
+                               name="gradeName"
+                               class="form-control"
+                               ng-model="newTeachClass.grade"
+                               required
+                               ng-class="{ error:(addGradeForm.gradeName.$invalid && addGradeForm.gradeName.$touched) || newTeachClass.error }"
+                               ng-blur="checkGradeName()"
+                               placeholder="年级名称">
+                    </div>
+                    <p class="error" ng-if="addGradeForm.gradeName.$error.required && addGradeForm.gradeName.$touched">
+                        请输入年级名称
+                    </p>
+                    <p class="error" ng-if="newTeachClass.error">
+                        {{newTeachClass.msg}}
+                    </p>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" ng-disabled="newTeachClass.error || addGradeForm.gradeName.$error.required" ng-click="addGrade()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>

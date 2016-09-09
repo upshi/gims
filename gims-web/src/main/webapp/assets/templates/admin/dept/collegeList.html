@@ -4,7 +4,7 @@
         <div class="row operation">
             <button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal">添加学院</button>
         </div>
-        <label class="deptLabel" ng-repeat="c in colleges"><a ui-sref="index.dept.office({deptName:c.name,isCollege:1})">{{ c.name  }}</a></label>
+        <label class="listLabel" ng-repeat="c in colleges"><a ui-sref="index.dept.office({deptName:c.name,isCollege:1})">{{ c.name  }}</a></label>
     </div>
 </div>
 

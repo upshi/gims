@@ -1,0 +1,45 @@
+<div class="panel panel-success">
+    <div class="panel-heading">专业管理</div>
+    <div class="panel-body" ng-init="init()">
+        <div class="row operation">
+            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal">添加专业</button>
+        </div>
+        <label class="listLabel" ng-repeat="m in majors"><a ui-sref="index.college.clazz({grade:grade, major:m.major})">{{ m.major  }}</a></label>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">添加专业</h4>
+            </div>
+            <div class="modal-body">
+                <form name="addMajorForm">
+                    <div class="form-group">
+                        <label class="control-label">专业名称:</label>
+                        <input type="text"
+                               name="majorName"
+                               class="form-control"
+                               ng-model="newTeachClass.major"
+                               required
+                               ng-class="{ error:(addMajorForm.majorName.$invalid && addMajorForm.majorName.$touched) || newTeachClass.error }"
+                               ng-blur="checkMajorName()"
+                               placeholder="专业名称">
+                    </div>
+                    <p class="error" ng-if="addMajorForm.majorName.$error.required && addMajorForm.majorName.$touched">
+                        请输入专业名称
+                    </p>
+                    <p class="error" ng-if="newTeachClass.error">
+                        {{newTeachClass.msg}}
+                    </p>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" ng-disabled="newTeachClass.error || addMajorForm.majorName.$error.required" ng-click="addMajor()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>

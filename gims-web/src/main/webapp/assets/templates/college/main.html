@@ -1,0 +1,67 @@
+<div id="left">
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading" role="tab">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" href="#collapseOne" aria-controls="collapseOne">
+                        学院管理
+                    </a>
+                </h4>
+            </div>
+
+            <div id="collapseOne" class="panel-collapse collapse in">
+                <!-- List group -->
+                <ul class="list-group">
+                    <li class="list-group-item"><a ui-sref="index.college.grade">年级管理</a></li>
+                    <li class="list-group-item"><a ui-sref="index.college.major">专业管理</a></li>
+                    <li class="list-group-item"><a ui-sref="index.college.clazz">班级管理</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading" role="tab">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" href="#collapseTwo" aria-controls="collapseTwo">
+                        统计表管理
+                    </a>
+                </h4>
+            </div>
+
+            <div id="collapseTwo" class="panel-collapse collapse in">
+                <!-- List group -->
+                <ul class="list-group">
+                    <li class="list-group-item">创建统计表</li>
+                    <li class="list-group-item">统计表管理</li>
+                    <li class="list-group-item">查询统计情况</li>
+                    <li class="list-group-item">导入导出</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading" role="tab">
+                <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" href="#collapseThree" aria-controls="collapseThree">
+                        设置
+                    </a>
+                </h4>
+            </div>
+
+            <div id="collapseThree" class="panel-collapse collapse in">
+                <!-- List group -->
+                <ul class="list-group">
+                <li class="list-group-item"><a ui-sref="index.settings.personalInfo">个人信息</a></li>
+                    <li class="list-group-item"><a ui-sref="index.settings.updatePassword">修改密码</a></li>
+                    <li class="list-group-item">备份计划</li>
+                    <li class="list-group-item">学生权限</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="right" ui-view>欢迎登陆</div>

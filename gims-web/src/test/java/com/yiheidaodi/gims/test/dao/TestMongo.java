@@ -114,7 +114,7 @@ public class TestMongo {
         System.out.println(user);
     }
 
-    @Test
+    // @Test
     public void updatePassword() {
         User user = mongoOps.findOne(new Query(where("userName").is("zpp").and("password").is("123456")), User.class);
         WriteResult writeResult = mongoOps.updateFirst(new Query(where("id").is("57d14fda4b2adf2a68ad6dfd")), Update.update("name", "金保召"), User.class);

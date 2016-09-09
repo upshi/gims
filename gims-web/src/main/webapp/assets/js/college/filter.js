@@ -1,4 +1,4 @@
-var adminFilter = angular.module('adminFilter', []);
+var adminFilter = angular.module('collegeFilter', []);
 
 adminFilter.filter('filterEmpty', function () {
     return function(inputs, param1){

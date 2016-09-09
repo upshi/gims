@@ -35,7 +35,7 @@ public class VerifyController {
         } else {
             map.put("correct", 1);
             map.put("role", correctUser.getRole());
-            session.setAttribute("user", user);
+            session.setAttribute("user", correctUser);
         }
         return map;
     }
