@@ -20,4 +20,6 @@ public interface IUserDao {
     User getUserByUserName(String userName);
 
     void add(User user);
+
+    void updatePassword(String userId, String password);
 }

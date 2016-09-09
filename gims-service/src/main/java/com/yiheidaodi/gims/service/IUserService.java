@@ -20,4 +20,6 @@ public interface IUserService {
     int checkUserName(String userName);
 
     void add(User user);
+
+    void updatePassword(String id, String password);
 }

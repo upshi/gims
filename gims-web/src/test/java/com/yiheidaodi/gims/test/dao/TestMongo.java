@@ -3,6 +3,7 @@ package com.yiheidaodi.gims.test.dao;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.mongodb.MongoClient;
+import com.mongodb.WriteResult;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
@@ -16,6 +17,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -112,10 +114,12 @@ public class TestMongo {
         System.out.println(user);
     }
 
-    // @Test
+    @Test
     public void updatePassword() {
         User user = mongoOps.findOne(new Query(where("userName").is("zpp").and("password").is("123456")), User.class);
-        System.out.println(user);
+        WriteResult writeResult = mongoOps.updateFirst(new Query(where("id").is("57d14fda4b2adf2a68ad6dfd")), Update.update("name", "金保召"), User.class);
+        System.out.println("---------------------------------------\n");
+        System.out.println(writeResult);
     }
 
 }
