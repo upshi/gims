@@ -18,4 +18,6 @@ public interface IUserService {
     User userLogin(User user);
 
     int checkUserName(String userName);
+
+    void add(User user);
 }

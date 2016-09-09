@@ -112,4 +112,10 @@ public class TestMongo {
         System.out.println(user);
     }
 
+    // @Test
+    public void updatePassword() {
+        User user = mongoOps.findOne(new Query(where("userName").is("zpp").and("password").is("123456")), User.class);
+        System.out.println(user);
+    }
+
 }

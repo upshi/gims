@@ -21,4 +21,7 @@ public interface IDeptService {
 
     List<Dept> officeList(String deptName);
 
+    Dept findByNameAndOffice(String deptName, String office);
+
+    List<Dept> deptAndCollegeList();
 }

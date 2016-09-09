@@ -81,6 +81,13 @@ public class DeptController {
         return map;
     }
 
-
+    @RequestMapping("/deptAndCollegeList")
+    @ResponseBody
+    public Map<String, Object> deptAndCollegeList() {
+        Map<String, Object> map = new HashMap<String, Object>();
+        List<Dept> depts = deptService.deptAndCollegeList();
+        map.put("depts", depts);
+        return map;
+    }
 
 }

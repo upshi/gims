@@ -36,4 +36,9 @@ public class UserServiceImpl implements IUserService {
         User user = userDao.getUserByUserName(userName);
         return user == null? 0 : 1;
     }
+
+    @Override
+    public void add(User user) {
+        userDao.add(user);
+    }
 }

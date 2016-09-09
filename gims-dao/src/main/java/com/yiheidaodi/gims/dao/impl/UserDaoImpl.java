@@ -50,4 +50,9 @@ public class UserDaoImpl implements IUserDao {
     public User getUserByUserName(String userName) {
         return mongoOps.findOne(new Query(where("userName").is(userName)), User.class);
     }
+
+    @Override
+    public void add(User user) {
+        mongoOps.insert(user);
+    }
 }
