@@ -102,4 +102,12 @@ public class UserController {
         return map;
     }
 
+    @RequestMapping("/logout")
+    @ResponseBody
+    public Map<String, Object> logout(HttpSession session) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        session.removeAttribute("user");
+        return map;
+    }
+
 }
