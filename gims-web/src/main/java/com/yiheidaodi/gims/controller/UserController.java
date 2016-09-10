@@ -86,7 +86,7 @@ public class UserController {
         User user = (User) session.getAttribute("user");
         boolean correct = passwordEncoder.matches(oldPassword, user.getPassword());
         if(correct) {
-            userService.updatePassword(user.getId(), user.getPassword());
+            userService.updatePassword(user.getId(), newPassword);
             map.put("result", "success");
         }
         return map;
