@@ -269,6 +269,27 @@ adminController.controller('personalInfoController', ['$scope', '$http', functio
 }]);
 
 /* 修改密码 */
-adminController.controller('updatePasswordController', ['$scope', function ($scope) {
-
+adminController.controller('updatePasswordController', ['$scope', '$http', '$httpParamSerializerJQLike',
+                            function ($scope,$http,$httpParamSerializerJQLike) {
+    $scope.password = {
+        oldPassword: '',
+        newPassword: '',
+        rePassword: '',
+        correct: '',
+        msg: '您输入的原密码不正确'
+    }
+    $scope.checkPassword = function () {
+        $http({
+            method: 'POST',
+            url: 'api/user/checkPassword',
+            data: $httpParamSerializerJQLike({password: $scope.password.newPassword}),
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            cache: false
+        }).success(function (data) {
+            $scope.password.correct = data.correct;
+            console.log($scope.password.correct);
+        });
+    };
 }]);
