@@ -187,31 +187,70 @@ adminController.controller('userListController', ['$scope', '$http', '$httpParam
     };
 }]);
 
-/* 添加用户 */
-adminFilter.filter('filterAllDept', function () {
-    return function(depts){
-        var arr = [];
-        angular.forEach(depts, function (dept) {
-            if(dept.office == '') {
-                arr.push(dept);
+adminController.controller('addUserController', ['$scope', '$http', '$httpParamSerializerJQLike', '$state',
+                                            function ($scope, $http, $httpParamSerializerJQLike, $state) {
+    $scope.init = function () {
+        $http({
+            method: 'POST',
+            url: 'api/dept/deptAndCollegeList',
+            cache: false
+        }).success(function (data) {
+            $scope.depts = data.depts;
+        });
+    };
+
+    $scope.user = {
+        userName: '',
+        password: '',
+        name: '',
+        tel: '',
+        email: '',
+        role : '',
+        deptName: '',
+        office: ''
+    };
+
+    $scope.newUser = {
+        error: false,
+        msg: ''
+    };
+
+    $scope.checkUserName = function () {
+        $http({
+            method: 'POST',
+            url: 'api/user/checkUserName',
+            data: $httpParamSerializerJQLike({userName: $scope.user.userName}),
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            cache: false
+        }).success(function (data) {
+            if (data.exist === 1) {
+                $scope.newUser.msg = '您输入的用户名已存在';
+                $scope.newUser.error = true;
+                return false;
+            } else {
+                $scope.newUser.error = false;
             }
         });
-        return arr;
     }
-});
 
-adminFilter.filter('filterOffice', function () {
-    return function(depts, deptName){
-        var arr = [];
-        angular.forEach(depts, function (dept) {
-            if(dept.name == deptName && dept.office !=='') {
-                arr.push(dept);
-            }
-        });
-        return arr;
+    $scope.addUser = function () {
+        if (!$scope.newUser.error) {
+            $http({
+                method: 'POST',
+                url: 'api/user/addUser',
+                data: $httpParamSerializerJQLike($scope.user),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }, 
+                cache: false
+            }).success(function () {
+                $state.go('index.dept.user');
+            });
+        }
     }
-});
-
+}]);
 
 /*
  * 设置
