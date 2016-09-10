@@ -40,6 +40,9 @@ public class UserController {
     public Map<String, Object> userList() {
         Map<String, Object> map = new HashMap<String, Object>();
         List<User> users = userService.userList();
+        for(User u : users) {
+            u.setPassword("");
+        }
         map.put("users", users);
         return map;
     }
@@ -61,6 +64,7 @@ public class UserController {
         Dept d = deptService.findByNameAndOffice(deptName, office);
         user.setDept(d);
         userService.add(user);
+        user.setPassword("");
         map.put("user", user);
         return map;
     }
@@ -85,6 +89,16 @@ public class UserController {
             userService.updatePassword(user.getId(), user.getPassword());
             map.put("result", "success");
         }
+        return map;
+    }
+
+    @RequestMapping("/personalInfo")
+    @ResponseBody
+    public Map<String, Object> personalInfo(HttpSession session) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        User user = (User) session.getAttribute("user");
+        user.setPassword("");
+        map.put("user", user);
         return map;
     }
 

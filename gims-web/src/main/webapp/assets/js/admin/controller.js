@@ -205,7 +205,7 @@ adminController.controller('addUserController', ['$scope', '$http', '$httpParamS
         name: '',
         tel: '',
         email: '',
-        role : '',
+        role : '1',
         deptName: '',
         office: ''
     };
@@ -256,8 +256,16 @@ adminController.controller('addUserController', ['$scope', '$http', '$httpParamS
  * 设置
  */
 /* 个人信息 */
-adminController.controller('personalInfoController', ['$scope', function ($scope) {
-
+adminController.controller('personalInfoController', ['$scope', '$http', function ($scope, $http) {
+    $scope.init = function () {
+        $http({
+            method: 'POST',
+            url: 'api/user/personalInfo',
+            cache: false
+        }).success(function (data) {
+            $scope.user = data.user;
+        });
+    };
 }]);
 
 /* 修改密码 */
