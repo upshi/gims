@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router','collegeController','collegeService','collegeFilter','collegeDirective']);
+var app = angular.module('app', ['ui.router','collegeController','collegeService','collegeFilter','collegeDirective','nav']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
     // For any unmatched url, redirect to /state1
@@ -12,7 +12,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
                     templateUrl: 'assets/templates/common/content.html'
                 },
                 'nav@index': {
-                    templateUrl: 'assets/templates/common/nav.html'
+                    templateUrl: 'assets/templates/common/nav.html',
+                    controller : 'navController'
                 },
                 'main@index': {
                     templateUrl: 'assets/templates/college/main.html'
