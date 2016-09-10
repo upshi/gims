@@ -269,27 +269,43 @@ adminController.controller('personalInfoController', ['$scope', '$http', functio
 }]);
 
 /* 修改密码 */
-adminController.controller('updatePasswordController', ['$scope', '$http', '$httpParamSerializerJQLike',
-                            function ($scope,$http,$httpParamSerializerJQLike) {
+adminController.controller('updatePasswordController', ['$scope', '$http', '$httpParamSerializerJQLike', '$state',
+                            function ($scope,$http,$httpParamSerializerJQLike,$state) {
     $scope.password = {
         oldPassword: '',
         newPassword: '',
         rePassword: '',
-        correct: '',
+        correct: 'true',
         msg: '您输入的原密码不正确'
     }
     $scope.checkPassword = function () {
         $http({
             method: 'POST',
             url: 'api/user/checkPassword',
-            data: $httpParamSerializerJQLike({password: $scope.password.newPassword}),
+            data: $httpParamSerializerJQLike({password: $scope.password.oldPassword}),
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             cache: false
         }).success(function (data) {
             $scope.password.correct = data.correct;
-            console.log($scope.password.correct);
         });
+    };
+
+    $scope.updatePassword = function() {
+         $http({
+             method: 'POST',
+             url: 'api/user/updatePassword',
+             data: $httpParamSerializerJQLike({oldPassword: $scope.password.oldPassword,newPassword: $scope.password.oldPassword}),
+             headers: {
+                 'Content-Type': 'application/x-www-form-urlencoded'
+             },
+             cache: false
+         }).success(function(data) {
+             if(data.result === "success") {
+                 alert('修改成功！');
+
+             }
+         });
     };
 }]);
