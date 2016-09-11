@@ -54,11 +54,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 }
             }
         })
-        .state('index.sheet.create', {
-            url: '/create',
+        .state('index.sheet.createSheet', {
+            url: '/createSheet',
+            templateUrl: 'assets/templates/college/sheet/createSheet.html',
+            controller: 'createSheetController'
+        })
+        .state('index.sheet.designSheet', {
+            url: '/designSheet/:sheetId',
             views: {
                 'main@index': {
-                    templateUrl: 'assets/templates/college/main.html'
+                    templateUrl: 'assets/templates/college/sheet/designSheet.html',
+                    controller: 'designSheetController'
                 }
             }
         })

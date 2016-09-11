@@ -94,6 +94,4 @@ public class TeachClassController {
         User user = (User) session.getAttribute("user");
         return user.getDept().getName();
     }
-
-
 }

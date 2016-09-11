@@ -1,4 +1,4 @@
-var elements =
+var items =
     [
         "<li tabindex='1' tag='0'><p>标签</p><p class='labelDis'>这里是标签的描述</p></li>",
         "<li tabindex='1' tag='1'><p>单行文本</p><input readonly type='text' class='longElement'></li>",

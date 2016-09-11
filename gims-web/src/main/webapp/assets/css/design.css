@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: '微软雅黑', 'Times New Roman', Times, serif;
+    background: url("../images/bg.png") repeat;
+    overflow: hidden;
+}
+
+/*去除所有的ul自带样式*/
+ul {
+    list-style: none;
+}
+
+/*修改默认的字体文件的大小*/
+.glyphicon {
+    font-size: 90%;
+    margin-right: 10px;
+    margin-top: 8px;
+}
+
+.section_left {
+    width: 150px;
+    float: left;
+    margin-right: 15px;
+}
+
+/*主体部分左边、右边的头部样式*/
+.section_left_header, .section_right_header {
+    background-color: rgb(241, 241, 241);
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    font-weight: bolder;
+    border: 1px solid #ccc;
+    border-bottom: none;
+}
+
+.section_left_header {
+    padding-left: 15px;
+}
+
+/*主体部分左边内容区*/
+.section_left_content {
+    width: 150px;
+    min-height: 400px;
+    background-color: #fff;
+    border: 1px solid rgb(221, 221, 221);
+    list-style: none;
+}
+
+.section_left_content p {
+    width: 150px;
+    margin: 0 auto;
+}
+
+.eleBox {
+    width: 110px;
+    margin: 0 auto;
+}
+
+/*主体部分左边内容区的li标签样式*/
+.section_left_content li {
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #ccc;
+}
+
+.section_middle {
+    width: 700px;
+    float: left;
+    position: relative;
+}
+
+/*主体部分中间的头部样式*/
+.section_middle_header {
+    width: 700px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    font-weight: bolder;
+    border: 1px dashed #c0c0c0;
+    background-color: rgb(255, 251, 239);
+    padding-left: 10px;
+    position: absolute;
+}
+
+/*主体部分中间的内容区样式*/
+.section_middle_content {
+    min-height: 450px;
+    background-color: #fff;
+    border: 1px solid rgb(221, 221, 221);
+    margin-top: 40px;
+    font-size: 14px;
+    max-height: 500px;
+    overflow: auto;
+}
+
+/*主体部分中间区的底部样式，中间内容区为空时隐藏*/
+.section_middle_footer {
+    height: 45px;
+    line-height: 45px;
+    background-color: rgb(241, 241, 241);
+    border: 1px solid #ccc;
+    border-top: none;
+    text-align: center;
+    margin-top: -10px;
+}
+
+/*设置中间区底部按钮的样式*/
+.section_middle_footer .btn {
+    margin-top: -5px;
+    width: 100px;
+}
+
+/*主体部分中间内容区li标签的样式*/
+#drop li {
+    width: 610px;
+    cursor: move;
+    margin: 5px auto;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    clear: both;
+    /* background-color:#FFF8EF;*/
+}
+
+/*默认中间内容区li标签下的input标签样式*/
+#drop li input {
+    width: 550px;
+    height: 30px;
+    border: 1px solid #ccc;
+}
+#drop li img {
+    cursor: pointer;
+}
+/*默认中间区li标签下的所有input元素和textarea元素的鼠标样式*/
+#drop li input:hover, textarea:hover {
+    cursor: text;
+}
+
+/*多行文本所占的li标签的高度*/
+.multiText {
+    height: 120px;
+}
+
+/*设置多行文本的默认样式*/
+#drop li textarea {
+    resize: none; /*彻底禁用拖动*/
+    width: 550px;
+    height: 65px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+/*标签描述的样式*/
+.labelDis {
+    font-size: 13px;
+}
+
+/*input元素日期的样式,注意样式的特指度*/
+#drop .special input {
+    width: 60px;
+    text-align: center;
+}
+
+.special b {
+    font-weight: 400;
+}
+
+/*input元素年龄下拉框的样式*/
+.age {
+    width: 60px;
+    height: 30px;
+}
+
+/*特殊的li标签：用于显示单选和多选框*/
+.choose span {
+    display: block;
+    margin: 10px;
+}
+
+/*input元素单选和多选框的样式*/
+#drop li input[type='radio'], #drop li input[type='checkbox'] {
+    width: 13px;
+    height: 13px;
+    text-align: center;
+    margin-right: 5px;
+}
+
+/*input元素下拉框的样式*/
+.pullDown {
+    width: 270px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+/*排序时，鼠标滑过li标签时的样式*/
+.elementHover {
+    border: 1px dashed #ccc;
+}
+
+/*排序时，鼠标点击li标签时的样式*/
+.elementClick {
+    border: 1px solid #E8DBAD;
+    background-color: #FFF8EF;
+    outline-color: #E8DBAD;
+    position: relative;
+}
+
+.section_right {
+    width: 220px;
+    float: left;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.section_right_header {
+    padding-left: 10px;
+    width: 220px;
+    position: absolute;
+}
+
+/*主体部分右边的内容区样式*/
+.section_right_content {
+    width: 220px;
+    min-height: 400px;
+    background-color: #fff;
+    padding: 10px 10px 0 10px;
+    border: 1px solid #ccc;
+    border-top: none;
+    position: absolute;
+    top: 40px;
+    overflow: auto;
+}
+
+/*右边选择框的长度*/
+.section_right_content textarea {
+    resize: none;/*彻底禁用拖动*/
+    width: 200px;
+    height: 74px;
+}
+
+.section_right_content input[type="radio"] {
+    background-color: #1b6d85;
+}
+
+#drop li .shorterElement {
+    width: 75px;
+    height: 30px;
+}
+#drop li .shortElement {
+    width: 150px;
+    height: 30px;
+}
+
+#drop li .middleElement {
+    width: 300px;
+    height: 30px;
+}
+
+#drop li .longElement {
+    width: 550px;
+    height: 30px;
+}
+
+.address {
+    width: 180px;
+    height: 30px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+/*设置滚动条样式*/
+::-webkit-scrollbar-track-piece {
+    background-color: #fff; /*滚动条的背景颜色*/
+    -webkit-border-radius: 0; /*滚动条的圆角宽度*/
+}
+
+::-webkit-scrollbar {
+    width: 2px; /*滚动条的宽度*/
+    height: 5px; /*滚动条的高度*/
+}
+
+::-webkit-scrollbar-thumb:vertical { /*垂直滚动条的样式*/
+    height: 50px;
+    background-color: rgb(216, 216, 216);
+    -webkit-border-radius: 4px;
+}

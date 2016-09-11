@@ -1,5 +1,7 @@
 package com.yiheidaodi.gims.service;
 
+import com.yiheidaodi.gims.model.Sheet;
+
 /**
  * gims com.yiheidaodi.gims.service
  * 描述：
@@ -8,4 +10,7 @@ package com.yiheidaodi.gims.service;
  */
 
 public interface ISheetService {
+    Sheet findByOwnerAndName(String college, String name);
+
+    void add(Sheet sheet);
 }

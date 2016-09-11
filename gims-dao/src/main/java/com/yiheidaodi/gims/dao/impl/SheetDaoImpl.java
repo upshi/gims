@@ -1,7 +1,13 @@
 package com.yiheidaodi.gims.dao.impl;
 
 import com.yiheidaodi.gims.dao.ISheetDao;
+import com.yiheidaodi.gims.model.Sheet;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
+
+import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 /**
  * gims com.yiheidaodi.gims.dao.impl
@@ -13,4 +19,16 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class SheetDaoImpl implements ISheetDao {
 
+    @Autowired
+    MongoOperations mongoOps;
+
+    @Override
+    public Sheet findByOwnerAndName(String college, String name) {
+        return mongoOps.findOne(new Query(where("owner").is(college).and("name").is(name)), Sheet.class);
+    }
+
+    @Override
+    public void add(Sheet sheet) {
+        mongoOps.insert(sheet);
+    }
 }
