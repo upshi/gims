@@ -172,12 +172,3 @@ adminController.controller('clazzListController', ['$scope', '$http', '$filter',
 /*
  * 设置
  */
-/* 个人信息 */
-adminController.controller('personalInfoController', ['$scope', function ($scope) {
-
-}]);
-
-/* 修改密码 */
-adminController.controller('updatePasswordController', ['$scope', function ($scope) {
-
-}]);

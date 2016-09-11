@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router','adminController','adminService','adminFilter','adminDirective','nav']);
+var app = angular.module('app', ['ui.router','adminController','adminService','adminFilter','adminDirective','nav','share']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
     // For any unmatched url, redirect to /state1
@@ -66,12 +66,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
         })
         .state('index.settings.personalInfo', {
             url: '/personalInfo',
-            templateUrl: 'assets/templates/admin/settings/personalInfo.html',
+            templateUrl: 'assets/templates/share/personalInfo.html',
             controller: 'personalInfoController'
         })
         .state('index.settings.updatePassword', {
             url: '/updatePassword',
-            templateUrl: 'assets/templates/admin/settings/updatePassword.html',
+            templateUrl: 'assets/templates/share/updatePassword.html',
             controller: 'updatePasswordController'
         })
 });
