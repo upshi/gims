@@ -297,7 +297,7 @@ adminController.controller('updatePasswordController', ['$scope', '$http', '$htt
          $http({
              method: 'POST',
              url: 'api/user/updatePassword',
-             data: $httpParamSerializerJQLike({oldPassword: $scope.password.oldPassword,newPassword: $scope.password.oldPassword}),
+             data: $httpParamSerializerJQLike({oldPassword: $scope.password.oldPassword,newPassword: $scope.password.newPassword}),
              headers: {
                  'Content-Type': 'application/x-www-form-urlencoded'
              },
