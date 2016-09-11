@@ -62,4 +62,9 @@ public class UserDaoImpl implements IUserDao {
         String encoded = passwordEncoder.encode(password);
         mongoOps.updateFirst(new Query(where("id").is(userId)), Update.update("password", encoded), User.class);
     }
+
+    @Override
+    public User getUserById(String id) {
+        return mongoOps.findOne(new Query(where("id").is(id)), User.class);
+    }
 }

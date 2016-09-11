@@ -46,6 +46,22 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'assets/templates/college/college/clazzList.html',
             controller: 'clazzListController'
         })
+        .state('index.sheet', {
+            url: '/sheet',
+            views: {
+                'main@index': {
+                    templateUrl: 'assets/templates/college/main.html'
+                }
+            }
+        })
+        .state('index.sheet.create', {
+            url: '/create',
+            views: {
+                'main@index': {
+                    templateUrl: 'assets/templates/college/main.html'
+                }
+            }
+        })
         .state('index.settings', {
             url: '/settings',
             views: {

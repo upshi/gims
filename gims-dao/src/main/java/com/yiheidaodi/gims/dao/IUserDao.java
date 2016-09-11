@@ -22,4 +22,6 @@ public interface IUserDao {
     void add(User user);
 
     void updatePassword(String userId, String password);
+
+    User getUserById(String id);
 }

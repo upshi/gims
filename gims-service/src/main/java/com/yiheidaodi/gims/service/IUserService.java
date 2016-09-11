@@ -22,4 +22,6 @@ public interface IUserService {
     void add(User user);
 
     void updatePassword(String id, String password);
+
+    User getUserById(String id);
 }
