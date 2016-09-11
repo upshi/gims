@@ -87,6 +87,9 @@ public class UserController {
         boolean correct = passwordEncoder.matches(oldPassword, user.getPassword());
         if(correct) {
             userService.updatePassword(user.getId(), newPassword);
+            //把修改过密码的用户存储到session中
+            User latestUser = userService.getUserById(user.getId());
+            session.setAttribute("user", latestUser);
             map.put("result", "success");
         }
         return map;
