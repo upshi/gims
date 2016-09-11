@@ -51,6 +51,7 @@ share.controller('updatePasswordController', ['$scope', '$http', '$httpParamSeri
             cache: false
         }).success(function (data) {
             if(data.result === "success") {
+                alert('修改成功！');
                 $state.reload('index.settings.updatePassword');
             }
         });
