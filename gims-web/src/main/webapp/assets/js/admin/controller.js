@@ -276,7 +276,7 @@ adminController.controller('updatePasswordController', ['$scope', '$http', '$htt
         newPassword: '',
         rePassword: '',
         correct: 'true',
-        msg: '您输入的原密码不正确'
+        msg: ''
     }
     $scope.checkPassword = function () {
         $http({
@@ -289,6 +289,7 @@ adminController.controller('updatePasswordController', ['$scope', '$http', '$htt
             cache: false
         }).success(function (data) {
             $scope.password.correct = data.correct;
+            $scope.password.msg = '您输入的原密码不正确';
         });
     };
 
@@ -303,8 +304,9 @@ adminController.controller('updatePasswordController', ['$scope', '$http', '$htt
              cache: false
          }).success(function(data) {
              if(data.result === "success") {
-                 alert('修改成功！');
-
+                 $.each($scope.password, function(i,n) {
+                     $scope.password[i] = '';
+                 })
              }
          });
     };
