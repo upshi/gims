@@ -96,4 +96,228 @@ public class Element {
     private Integer seq;        //序号
     private String sheetId;     //统计表id
 
+    public Element() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getColumnName() {
+        return columnName;
+    }
+
+    public void setColumnName(String columnName) {
+        this.columnName = columnName;
+    }
+
+    public Integer getWidth() {
+        return width;
+    }
+
+    public void setWidth(Integer width) {
+        this.width = width;
+    }
+
+    public Integer getIsRequired() {
+        return isRequired;
+    }
+
+    public void setIsRequired(Integer isRequired) {
+        this.isRequired = isRequired;
+    }
+
+    public String getDefaultValue() {
+        return defaultValue;
+    }
+
+    public void setDefaultValue(String defaultValue) {
+        this.defaultValue = defaultValue;
+    }
+
+    public Integer getHasCode() {
+        return hasCode;
+    }
+
+    public void setHasCode(Integer hasCode) {
+        this.hasCode = hasCode;
+    }
+
+    public Integer getHasUploaded() {
+        return hasUploaded;
+    }
+
+    public void setHasUploaded(Integer hasUploaded) {
+        this.hasUploaded = hasUploaded;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Integer getIsVisible() {
+        return isVisible;
+    }
+
+    public void setIsVisible(Integer isVisible) {
+        this.isVisible = isVisible;
+    }
+
+    public String getRows() {
+        return rows;
+    }
+
+    public void setRows(String rows) {
+        this.rows = rows;
+    }
+
+    public Integer getIsInteger() {
+        return isInteger;
+    }
+
+    public void setIsInteger(Integer isInteger) {
+        this.isInteger = isInteger;
+    }
+
+    public Integer getMinValue() {
+        return minValue;
+    }
+
+    public void setMinValue(Integer minValue) {
+        this.minValue = minValue;
+    }
+
+    public Integer getMaxValue() {
+        return maxValue;
+    }
+
+    public void setMaxValue(Integer maxValue) {
+        this.maxValue = maxValue;
+    }
+
+    public Integer getTire() {
+        return tire;
+    }
+
+    public void setTire(Integer tire) {
+        this.tire = tire;
+    }
+
+    public String getItem() {
+        return item;
+    }
+
+    public void setItem(String item) {
+        this.item = item;
+    }
+
+    public Integer getInnerWidth() {
+        return innerWidth;
+    }
+
+    public void setInnerWidth(Integer innerWidth) {
+        this.innerWidth = innerWidth;
+    }
+
+    public Integer getLayout() {
+        return layout;
+    }
+
+    public void setLayout(Integer layout) {
+        this.layout = layout;
+    }
+
+    public Integer getMinLength() {
+        return minLength;
+    }
+
+    public void setMinLength(Integer minLength) {
+        this.minLength = minLength;
+    }
+
+    public Integer getMaxLength() {
+        return maxLength;
+    }
+
+    public void setMaxLength(Integer maxLength) {
+        this.maxLength = maxLength;
+    }
+
+    public String getDelimiter() {
+        return delimiter;
+    }
+
+    public void setDelimiter(String delimiter) {
+        this.delimiter = delimiter;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Integer getSeq() {
+        return seq;
+    }
+
+    public void setSeq(Integer seq) {
+        this.seq = seq;
+    }
+
+    public String getSheetId() {
+        return sheetId;
+    }
+
+    public void setSheetId(String sheetId) {
+        this.sheetId = sheetId;
+    }
+
+    @Override
+    public String toString() {
+        return "Element{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", columnName='" + columnName + '\'' +
+                ", width=" + width +
+                ", isRequired=" + isRequired +
+                ", defaultValue='" + defaultValue + '\'' +
+                ", hasCode=" + hasCode +
+                ", hasUploaded=" + hasUploaded +
+                ", description='" + description + '\'' +
+                ", isVisible=" + isVisible +
+                ", rows='" + rows + '\'' +
+                ", isInteger=" + isInteger +
+                ", minValue=" + minValue +
+                ", maxValue=" + maxValue +
+                ", tire=" + tire +
+                ", item='" + item + '\'' +
+                ", innerWidth=" + innerWidth +
+                ", layout=" + layout +
+                ", minLength=" + minLength +
+                ", maxLength=" + maxLength +
+                ", delimiter='" + delimiter + '\'' +
+                ", type='" + type + '\'' +
+                ", seq=" + seq +
+                ", sheetId='" + sheetId + '\'' +
+                '}';
+    }
 }

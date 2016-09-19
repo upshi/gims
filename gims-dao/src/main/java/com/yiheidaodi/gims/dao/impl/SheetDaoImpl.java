@@ -7,6 +7,8 @@ import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 /**
@@ -30,5 +32,15 @@ public class SheetDaoImpl implements ISheetDao {
     @Override
     public void add(Sheet sheet) {
         mongoOps.insert(sheet);
+    }
+
+    @Override
+    public List<Sheet> getSheetsByOwner(String owner) {
+        return mongoOps.find(new Query(where("owner").is(owner)), Sheet.class);
+    }
+
+    @Override
+    public Sheet getBySheetId(String sheetId) {
+        return mongoOps.findOne(new Query(where("id").is(sheetId)), Sheet.class);
     }
 }

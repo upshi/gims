@@ -230,6 +230,7 @@ adminController.controller('createSheetController', ['$scope', '$http', '$filter
 
 adminController.controller('designSheetController', ['$scope', '$http', '$filter', '$state', '$stateParams', '$httpParamSerializerJQLike', function ($scope, $http, $filter, $state, $stateParams, $httpParamSerializerJQLike) {
 
+    $scope.sheetId = $stateParams.sheetId;
     $scope.elements = {};
 
     $scope.onItemClick = function (tag) {
@@ -240,6 +241,7 @@ adminController.controller('designSheetController', ['$scope', '$http', '$filter
         $("#drop li:last-child").attr("uuid", uuid);
 
         var ele = eleInit(tag, uuid);//数组初始化，保存元素的所有属性和对应的值
+        ele.sheetId = $scope.sheetId;
         $scope.elements[uuid] = ele;
 
         /* 为每个中间的li标签添加点击事件 */
@@ -439,8 +441,64 @@ adminController.controller('designSheetController', ['$scope', '$http', '$filter
         delete $scope.elements[$(this).parent().attr('uuid')];
         console.log($scope.elements);
     }
+
+    $scope.save = function () {
+        var lis = $('#drop').children('li');
+        var data = [];
+        angular.forEach($(lis), function (li, index) {
+            var uuid = $(li).attr('uuid');
+            $scope.elements[uuid].seq = index + 1;
+            data.push($scope.elements[uuid]);
+        });
+
+        $http({
+            method : 'POST',
+            url : 'api/sheet/design',
+            data: JSON.stringify(data),
+            cache : false
+        }).success(function(data){
+
+        });
+    }
+
 }]);
 
+adminController.controller('sheetListController', ['$scope', '$http', '$httpParamSerializerJQLike', function ($scope, $http, $httpParamSerializerJQLike) {
+    $scope.init = function () {
+        $http({
+            method : 'POST',
+            url : 'api/sheet/sheetList',
+            cache : false
+        }).success(function(data){
+            $scope.sheets = data.sheets;
+        });
+    };
+}]);
+
+adminController.controller('updateSheetController', ['$scope', '$http', '$filter', '$state', '$stateParams', '$httpParamSerializerJQLike', function ($scope, $http, $filter, $state, $stateParams, $httpParamSerializerJQLike) {
+
+    $scope.sheetId = $stateParams.sheetId;
+    
+    $scope.init = function () {
+        $http({
+            method : 'POST',
+            url : 'api/sheet/getSheet',
+            data: $httpParamSerializerJQLike({sheetId: $scope.sheetId}),
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            cache : false
+        }).success(function(data){
+            if(data.result === 'success') {
+                $scope.sheet = data.sheet;
+                $scope.elements = data.elements;
+            } else {
+                $state.go('index.sheet.sheetList');
+            }
+        });
+    }
+
+}]);
 
 
 /*

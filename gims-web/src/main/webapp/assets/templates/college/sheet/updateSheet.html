@@ -1,4 +1,4 @@
-<div class="section_left">
+<div class="section_left" ng-init="init()">
     <header class="section_left_header"><p>通用字段</p></header>
     <div>
         <ul class="section_left_content">
@@ -57,7 +57,7 @@
     <header class="section_middle_header"><p ng-bind="sheet.sheetName"></p></header>
     <ul id="drop" class="section_middle_content"></ul>
     <footer class="section_middle_footer">
-        <button class="btn btn-primary" ng-click="save()">保存</button>
+        <button class="btn btn-primary">保存</button>
     </footer>
 </div>
 <div class="section_right">

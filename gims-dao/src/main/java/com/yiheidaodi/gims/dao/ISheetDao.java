@@ -2,6 +2,8 @@ package com.yiheidaodi.gims.dao;
 
 import com.yiheidaodi.gims.model.Sheet;
 
+import java.util.List;
+
 /**
  * gims com.yiheidaodi.gims.service
  * 描述：
@@ -13,4 +15,8 @@ public interface ISheetDao {
     Sheet findByOwnerAndName(String college, String name);
 
     void add(Sheet sheet);
+
+    List<Sheet> getSheetsByOwner(String owner);
+
+    Sheet getBySheetId(String sheetId);
 }

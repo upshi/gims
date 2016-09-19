@@ -59,12 +59,26 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'assets/templates/college/sheet/createSheet.html',
             controller: 'createSheetController'
         })
+        .state('index.sheet.sheetList', {
+            url: '/sheetList',
+            templateUrl: 'assets/templates/college/sheet/sheetList.html',
+            controller: 'sheetListController'
+        })
         .state('index.sheet.designSheet', {
             url: '/designSheet/:sheetId',
             views: {
                 'main@index': {
                     templateUrl: 'assets/templates/college/sheet/designSheet.html',
                     controller: 'designSheetController'
+                }
+            }
+        })
+        .state('index.sheet.updateSheet', {
+            url: '/updateSheet/:sheetId',
+            views: {
+                'main@index': {
+                    templateUrl: 'assets/templates/college/sheet/updateSheet.html',
+                    controller: 'updateSheetController'
                 }
             }
         })

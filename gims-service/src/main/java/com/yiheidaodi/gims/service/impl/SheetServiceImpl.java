@@ -6,6 +6,8 @@ import com.yiheidaodi.gims.service.ISheetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * gims com.yiheidaodi.gims.service.impl
  * 描述：
@@ -27,5 +29,15 @@ public class SheetServiceImpl implements ISheetService {
     @Override
     public void add(Sheet sheet) {
         sheetDao.add(sheet);
+    }
+
+    @Override
+    public List<Sheet> sheetList(String owner) {
+        return sheetDao.getSheetsByOwner(owner);
+    }
+
+    @Override
+    public Sheet getSheetById(String sheetId) {
+        return sheetDao.getBySheetId(sheetId);
     }
 }

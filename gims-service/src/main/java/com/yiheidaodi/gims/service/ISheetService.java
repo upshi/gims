@@ -2,6 +2,8 @@ package com.yiheidaodi.gims.service;
 
 import com.yiheidaodi.gims.model.Sheet;
 
+import java.util.List;
+
 /**
  * gims com.yiheidaodi.gims.service
  * 描述：
@@ -13,4 +15,8 @@ public interface ISheetService {
     Sheet findByOwnerAndName(String college, String name);
 
     void add(Sheet sheet);
+
+    List<Sheet> sheetList(String owner);
+
+    Sheet getSheetById(String sheetId);
 }
