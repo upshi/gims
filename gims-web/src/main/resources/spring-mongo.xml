@@ -15,6 +15,8 @@
         <constructor-arg name="databaseName" value="gims"/>
     </bean>
 
+    <mongo:repositories base-package="com.yiheidaodi.gims.repository" />
+
 
     <!-- MongoDB Java API -->
     <bean id="mongoClient" class="com.mongodb.MongoClient">

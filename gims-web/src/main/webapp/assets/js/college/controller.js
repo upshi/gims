@@ -51,6 +51,56 @@ adminController.controller('gradeListController', ['$scope', '$http', '$httpPara
     }
 }]);
 
+adminController.controller('studentListController', ['$scope', '$http', 'Upload', '$httpParamSerializerJQLike',
+                                            function ($scope, $http, Upload, $httpParamSerializerJQLike) {
+
+    $scope.currentPage = 1;
+    $scope.maxSize = 10;
+    $scope.pageCount = 10;
+
+    $scope.init = function () {
+        $http({
+            method: 'POST',
+            url: 'api/student/studentList',
+            cache: false
+        }).success(function (data) {
+            $scope.students = data.students;
+            $scope.totals = data.totals;
+        });
+    };
+
+    $scope.pageChanged = function() {
+        $http({
+            method: 'POST',
+            url: 'api/student/studentList',
+            data: $httpParamSerializerJQLike({page: $scope.currentPage, size:$scope.pageCount}),
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            cache: false
+        }).success(function (data) {
+            $scope.students = data.students;
+            $scope.totals = data.totals;
+        });
+    };
+
+    $scope.upload = function() {
+        console.log('in');
+        Upload.upload({
+            url: 'api/student/upload',
+            fields: {'username': 'zouroto'}, // additional data to send
+            file: $scope.file
+        }).progress(function (evt) {
+            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
+        }).success(function (data, status, headers, config) {
+            console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
+        });
+    };
+
+
+}]);
+
 adminController.controller('majorListController', ['$scope', '$http', '$filter', '$stateParams', '$httpParamSerializerJQLike',
     function ($scope, $http, $filter, $stateParams, $httpParamSerializerJQLike) {
         $scope.grade = $stateParams.grade;

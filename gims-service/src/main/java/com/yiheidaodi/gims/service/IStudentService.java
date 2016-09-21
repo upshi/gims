@@ -1,5 +1,9 @@
 package com.yiheidaodi.gims.service;
 
+import com.yiheidaodi.gims.model.Student;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 /**
  * gims com.yiheidaodi.gims.service
  * 描述：
@@ -8,4 +12,5 @@ package com.yiheidaodi.gims.service;
  */
 
 public interface IStudentService {
+    Page<Student> studentList(String college, Pageable pageable);
 }

@@ -1,0 +1,67 @@
+<div class="panel panel-success">
+    <div class="panel-heading">学生管理</div>
+    <div class="panel-body" ng-init="init()">
+        <div class="row operation">
+            <input type="file"  ngf-select
+                                ng-model="file"
+                                name="file"
+                                ngf-pattern="'.xls'"
+                                accept="application/vnd.ms-excel"
+                                ngf-max-size="20MB"
+                                ngf-min-height="100" />
+
+            <button ng-click="upload()">导入学生信息</button>
+        </div>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>学号</th>
+                    <th>姓名</th>
+                    <th>班级</th>
+                    <th>手机</th>
+                    <th>邮箱</th>
+                    <th>身份证号</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="s in students">
+                    <td>{{ s.studentNo }}</td>
+                    <td>{{ s.name }}</td>
+                    <td>{{ s.teachClass.grade }}级-{{ s.teachClass.major }}{{ s.teachClass.clazz }}</td>
+                    <td>{{ s.tel }}</td>
+                    <td>{{ s.email }}</td>
+                    <td>{{ s.idNo }}</td>
+                    <td>
+                        <!-- Single button -->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                操作<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">查看</a></li>
+                                <li><a ui-sref="index.sheet.updateSheet({'sheetId' : s.id})">编辑</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="text-center" ng-show="totals > pageCount">
+            <ul uib-pagination boundary-links="true"
+                total-items="totals"
+                ng-model="currentPage"
+                items-per-page="pageCount"
+                class="pagination-sm"
+                previous-text="&lsaquo;"
+                next-text="&rsaquo;"
+                first-text="&laquo;"
+                last-text="&raquo;"
+                max-size="maxSize"
+                ng-change="pageChanged()">
+
+            </ul>
+        </div>
+    </div>
+</div>

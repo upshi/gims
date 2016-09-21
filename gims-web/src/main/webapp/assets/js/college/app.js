@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router','collegeController','collegeService','collegeFilter','collegeDirective','nav','share']);
+var app = angular.module('app', ['ui.router','ui.bootstrap','ngFileUpload','collegeController','collegeService','collegeFilter','collegeDirective','nav','share']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
     // For any unmatched url, redirect to /state1
@@ -35,6 +35,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
             url: '/college',
             templateUrl: 'assets/templates/college/college/gradeList.html',
             controller: 'gradeListController'
+        })
+        .state('index.college.student', {
+            url: '/student',
+            templateUrl: 'assets/templates/college/college/studentList.html',
+            controller: 'studentListController'
         })
         .state('index.college.major', {
             url: '/major/:grade',
